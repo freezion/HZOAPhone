@@ -1,0 +1,599 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/HZOA/!svn/ver/39/HZOAPhone/HZOAPhone
+END
+main.m
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/main.m
+END
+UserKeychain.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/UserKeychain.h
+END
+CalendarRelationship.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CalendarRelationship.h
+END
+MicrosoftYaHei.ttf
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MicrosoftYaHei.ttf
+END
+InvitEmployeeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/InvitEmployeeViewController.m
+END
+RealCopyrightsViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/RealCopyrightsViewController.h
+END
+UserKeychain.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/UserKeychain.m
+END
+CalendarRelationship.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CalendarRelationship.m
+END
+RealCopyrightsViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/RealCopyrightsViewController.m
+END
+EmailDetailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/HZOA/!svn/ver/48/HZOAPhone/HZOAPhone/EmailDetailViewController.h
+END
+CalendarCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CalendarCell.h
+END
+SystemConfig.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/SystemConfig.h
+END
+Contract.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Contract.h
+END
+CalenderChooseViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CalenderChooseViewController.h
+END
+CalendarCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CalendarCell.m
+END
+NSUtil.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NSUtil.h
+END
+EmailDetailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/HZOA/!svn/ver/48/HZOAPhone/HZOAPhone/EmailDetailViewController.m
+END
+ChooseEmployeeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/49/HZOAPhone/HZOAPhone/ChooseEmployeeViewController.h
+END
+SystemConfig.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/SystemConfig.m
+END
+ChooseTypeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ChooseTypeViewController.h
+END
+Notice.h
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Notice.h
+END
+CalenderChooseViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CalenderChooseViewController.m
+END
+Contract.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Contract.m
+END
+NSUtil.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NSUtil.m
+END
+ChooseEmployeeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/49/HZOAPhone/HZOAPhone/ChooseEmployeeViewController.m
+END
+ChooseTypeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ChooseTypeViewController.m
+END
+Notice.m
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Notice.m
+END
+HZOAPhone-Info.plist
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/HZOAPhone-Info.plist
+END
+prlm_sound_release.wav
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/prlm_sound_release.wav
+END
+NoticeDetailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NoticeDetailViewController.h
+END
+MemberViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MemberViewController.h
+END
+LoginViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/LoginViewController.h
+END
+NoticeDetailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NoticeDetailViewController.m
+END
+EventAlertViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/EventAlertViewController.h
+END
+SpringBoardViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/SpringBoardViewController.h
+END
+Calendar.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Calendar.h
+END
+HZOAPhone-Prefix.pch
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/HZOAPhone-Prefix.pch
+END
+MemberViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MemberViewController.m
+END
+LoginViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/LoginViewController.m
+END
+EventAlertViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/EventAlertViewController.m
+END
+SpringBoardViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/SpringBoardViewController.m
+END
+Calendar.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Calendar.m
+END
+FileViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/FileViewController.h
+END
+Employee.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Employee.h
+END
+FileCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/FileCell.h
+END
+MailCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MailCell.h
+END
+FileViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/FileViewController.m
+END
+Employee.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Employee.m
+END
+FileCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/FileCell.m
+END
+MailCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MailCell.m
+END
+NewNoticeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NewNoticeViewController.h
+END
+ContactCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ContactCell.h
+END
+CalendarDetailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CalendarDetailViewController.h
+END
+NewNoticeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NewNoticeViewController.m
+END
+ContactCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ContactCell.m
+END
+CalendarDetailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CalendarDetailViewController.m
+END
+ChooseCustomerViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ChooseCustomerViewController.h
+END
+ReplyEmailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/HZOA/!svn/ver/37/HZOAPhone/HZOAPhone/ReplyEmailViewController.h
+END
+ChooseCustomerViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ChooseCustomerViewController.m
+END
+ReplyEmailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/HZOA/!svn/ver/76/HZOAPhone/HZOAPhone/ReplyEmailViewController.m
+END
+CopyrightViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CopyrightViewController.h
+END
+prlm_sound_triggering.wav
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/prlm_sound_triggering.wav
+END
+ForwardEmailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/HZOA/!svn/ver/61/HZOAPhone/HZOAPhone/ForwardEmailViewController.h
+END
+CopyrightViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/CopyrightViewController.m
+END
+RightViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/74/HZOAPhone/HZOAPhone/RightViewController.h
+END
+ForwardEmailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/HZOA/!svn/ver/77/HZOAPhone/HZOAPhone/ForwardEmailViewController.m
+END
+RightViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/74/HZOAPhone/HZOAPhone/RightViewController.m
+END
+Mail.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Mail.h
+END
+NewCalendarViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NewCalendarViewController.h
+END
+prlm_sound_pull.wav
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/prlm_sound_pull.wav
+END
+EmailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/EmailViewController.h
+END
+Mail.m
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Mail.m
+END
+NewCalendarViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NewCalendarViewController.m
+END
+EmailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/HZOA/!svn/ver/48/HZOAPhone/HZOAPhone/EmailViewController.m
+END
+NewEmailViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/39/HZOAPhone/HZOAPhone/NewEmailViewController.h
+END
+Customer.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Customer.h
+END
+NewEmailViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/HZOA/!svn/ver/76/HZOAPhone/HZOAPhone/NewEmailViewController.m
+END
+Customer.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/Customer.m
+END
+MapAnnotation.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MapAnnotation.h
+END
+AppDelegate.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/AppDelegate.h
+END
+SettingViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/SettingViewController.h
+END
+MapAnnotation.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MapAnnotation.m
+END
+ChooseContractViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ChooseContractViewController.h
+END
+AppDelegate.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/HZOA/!svn/ver/79/HZOAPhone/HZOAPhone/AppDelegate.m
+END
+NoticeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NoticeViewController.h
+END
+MyFolder.h
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MyFolder.h
+END
+NoticeCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NoticeCell.h
+END
+SettingViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/SettingViewController.m
+END
+ChooseContractViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ChooseContractViewController.m
+END
+MainViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MainViewController.h
+END
+ChangeUserViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ChangeUserViewController.h
+END
+NoticeViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NoticeViewController.m
+END
+chat.wav
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/chat.wav
+END
+push.wav
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/push.wav
+END
+MyFolder.m
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MyFolder.m
+END
+NoticeCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/NoticeCell.m
+END
+MainViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/MainViewController.m
+END
+InvitEmployeeViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/InvitEmployeeViewController.h
+END
+ChangeUserViewController.m
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/HZOA/!svn/ver/33/HZOAPhone/HZOAPhone/ChangeUserViewController.m
+END

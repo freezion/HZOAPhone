@@ -1,0 +1,35 @@
+//
+// Prefix header for all source files of the 'HZOAPhone' target in the 'HZOAPhone' project
+//
+
+#import <Availability.h>
+
+#define SELECTED_VIEW_CONTROLLER_TAG 98456345
+#define NOTIFICATION_IMAGE_VIEW_TAG 98456346
+#define WEBSERVICE_ADDRESS @"http://58.246.32.107:8008/"
+#define FILE_ADDRESS @"http://58.246.32.107/Pages/Files/IOS/?id="
+#define KEY_LOGINID_PASSWORD @"com.czuft.hzoa.loginidpassword"
+#define KEY_LOGINID @"com.czuft.hzoa.loginid"
+#define KEY_USERID @"com.czuft.hzoa.userid"
+#define KEY_USERNAME @"com.czuft.hzoa.username"
+#define KEY_DEPTID @"com.czuft.hzoa.deptid"
+#define KEY_PASSWORD @"com.czuft.hzoa.password"
+#define KEY_NOTIFIY_CALENDAR @"0"
+#define KEY_NOTIFIY_NOTICE @"0"
+#define KEY_NOTIFIY_EMAIL @"0"
+#define KEY_CALENDAR @"Work"
+
+#define WEBSERVICE_ADDRESS2 @"http://211.143.254.235:8008/"
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <QuartzCore/QuartzCore.h>
+    #import "AppDelegate.h"
+    #import "NSUtil.h"
+    #import "UserKeychain.h"
+#endif

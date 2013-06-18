@@ -1,0 +1,106 @@
+//
+//  ChooseTypeViewController.m
+//  HZOAPhone
+//
+//  Created by Gong Lingxiao on 12-10-23.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import "ChooseTypeViewController.h"
+
+@interface ChooseTypeViewController ()
+
+@end
+
+@implementation ChooseTypeViewController
+
+@synthesize selectedIndex;
+@synthesize delegate;
+@synthesize typeId;
+@synthesize typeName;
+@synthesize cellNormal;
+@synthesize cellHoliday;
+@synthesize cellMeeting;
+@synthesize cellVisiting;
+@synthesize cellOutside;
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+
+    self.title = @"类型选择";
+    [self initChooseType];
+}
+
+- (void) initChooseType {
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    // Since the buttons can be any width we use a thin image with a stretchable center point
+    UIImage *buttonImage = [[UIImage imageNamed:@"finish.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+    UIImage *buttonPressedImage = [[UIImage imageNamed:@"finish2.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+    [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+    [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
+    CGRect buttonFrame = [button frame];
+    buttonFrame.size.width = buttonImage.size.width;
+    buttonFrame.size.height = buttonImage.size.height;
+    [button setFrame:buttonFrame];
+    [button addTarget:self action:@selector(backAction:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *buttonBar = [[UIBarButtonItem alloc] initWithCustomView:button];
+    self.navigationItem.rightBarButtonItem = buttonBar;
+    
+    if (selectedIndex == 0) {
+        cellNormal.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else if (selectedIndex == 1) {
+        cellVisiting.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else if (selectedIndex == 2) {
+        cellHoliday.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else if (selectedIndex == 3) {
+        cellMeeting.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else if (selectedIndex == 4) {
+        cellOutside.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)backAction:(id) sender {
+    [delegate chooseTypeViewController:self didSelectType:typeId withSelectIndex:selectedIndex withLabelTitle:typeName];
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (selectedIndex != NSNotFound)
+	{
+		UITableViewCell *cell = [tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:selectedIndex inSection:0]];
+		cell.accessoryType = UITableViewCellAccessoryNone;
+	}
+    
+    selectedIndex = indexPath.row;
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+	cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    typeId = [NSString stringWithFormat:@"%d", cell.tag];
+    typeName = cell.textLabel.text;
+}
+
+@end

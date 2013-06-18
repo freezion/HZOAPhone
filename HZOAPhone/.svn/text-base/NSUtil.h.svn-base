@@ -1,0 +1,30 @@
+//
+//  NSUtil.h
+//  HZOAHD
+//
+//  Created by Gong Lingxiao on 12-8-31.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface NSUtil : NSObject
+
++ (NSDate *)beginningOfMonth;
++ (NSDate *)endOfMonth;
++ (NSString *) parserDateToString:(NSDate *) date;
++ (NSDate *) parserStringToDate:(NSString *) dateString;
++ (NSString *)uuidString;
++ (NSString *)getDBPath;
++ (NSString *)addLT:(NSString *) data;
++ (NSString *) parserDateToTimeString:(NSDate *) date;
++ (NSString *)removeReceiveId:(NSString *) allId withReplace:(NSString *) receiveId;
++ (NSDate *) parserStringToNeedDate:(NSDate *) currentDate;
++ (NSDate *) parserStringToCustomDate:(NSString *) currentDateStr withParten:(NSString *) parten;
++ (NSString *) parserDateToCustomString:(NSDate *) currentDate withParten:(NSString *) parten;
++ (NSString *) parserStringToCustomString:(NSString *) currentDateStr withParten:(NSString *) parten;
++ (NSString *) parserStringToCustomStringAdv:(NSString *) currentDateStr withParten:(NSString *) parten  withToParten:(NSString *) toParten;
+
++ (NSString *) subStringLast:(NSString *) str;
+
+@end

@@ -1,0 +1,25 @@
+//
+//  Customer.h
+//  HZOAHD
+//
+//  Created by Gong Lingxiao on 12-9-14.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import <sqlite3.h>
+#import "GDataXMLNode.h"
+#import "ASIHTTPRequest.h"
+#import "ASIFormDataRequest.h"
+
+@interface Customer : NSObject {
+    NSString *customerId;
+    NSString *name;
+}
+
+@property (nonatomic, retain) NSString *customerId;
+@property (nonatomic, retain) NSString *name;
+
++ (NSMutableArray *) getAllCustomer;
+
+@end

@@ -1,0 +1,24 @@
+//
+//  SpringBoardViewController.h
+//  HZOAPhone
+//
+//  Created by Gong Lingxiao on 12-10-15.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface SpringBoardViewController : UIViewController {
+    UIImageView *imageView;
+    UIButton *calendarButton;
+}
+
+@property (nonatomic, retain) IBOutlet UIImageView *imageView;
+@property (nonatomic, retain) IBOutlet UIButton *calendarButton;
+
+- (IBAction)showCalendar:(id) sender;
+- (IBAction)showNotice:(id) sender;
+- (IBAction)showEmail:(id) sender;
+- (IBAction)showMember:(id) sender;
+
+@end

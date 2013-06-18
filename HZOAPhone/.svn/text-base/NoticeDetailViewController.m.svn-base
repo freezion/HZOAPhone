@@ -1,0 +1,61 @@
+//
+//  NoticeDetailViewController.m
+//  HZOAPhone
+//
+//  Created by Gong Lingxiao on 12-10-23.
+//  Copyright (c) 2012年 Changzhou Institute of Tech. All rights reserved.
+//
+
+#import "NoticeDetailViewController.h"
+#import "NoticeViewController.h"
+
+@interface NoticeDetailViewController ()
+
+@end
+
+@implementation NoticeDetailViewController
+
+@synthesize notice;
+@synthesize lblSendDate;
+@synthesize lblSenderName;
+@synthesize lblNoticeTitile;
+@synthesize txtContext;
+@synthesize lblSendType;
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.title = @"公告内容";
+    [self initNotice];
+}
+
+- (void) initNotice {
+    lblNoticeTitile.text = notice.title;
+    lblSendDate.text = notice.date;
+    lblSenderName.text = notice.sender;
+    lblSendType.text = notice.typeName;
+    txtContext.text = notice.context;
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+@end
