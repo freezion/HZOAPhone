@@ -11,17 +11,21 @@
 #import "GDataXMLNode.h"
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
+#import "MBButtonMenuViewController.h"
 
-@interface LoginViewController : UIViewController<MBProgressHUDDelegate, UIAlertViewDelegate, UITextFieldDelegate> {
+@interface LoginViewController : UIViewController<MBProgressHUDDelegate, UIAlertViewDelegate, UITextFieldDelegate, MBButtonMenuViewControllerDelegate> {
     UITextField *txtUserId;
     UITextField *txtPassword;
     MBProgressHUD *HUD;
     UIButton *subButton;
+    int flag;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *txtUserId;
 @property (nonatomic, retain) IBOutlet UITextField *txtPassword;
 @property (nonatomic, retain) IBOutlet UIButton *subButton;
+@property (nonatomic, strong) MBButtonMenuViewController *menu;
+@property (nonatomic) int flag;
 
 - (IBAction)login:(id)sender;
 

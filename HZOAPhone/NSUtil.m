@@ -10,7 +10,18 @@
 
 @implementation NSUtil
 
++ (NSString *) chooseRealm {
+    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
+    NSString *webAddress = [usernamepasswordKVPairs objectForKey:KEY_WEBSERVICE_ADDRESS];
+    return webAddress;
+}
 
++ (NSString *) chooseFileRealm {
+    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
+    NSString *fileAddress = [usernamepasswordKVPairs objectForKey:KEY_FILE_ADDRESS];
+    return fileAddress;
+    
+}
 
 + (NSDate *)beginningOfMonth
 {

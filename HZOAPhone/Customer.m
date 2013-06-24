@@ -20,7 +20,7 @@
 
 + (NSMutableArray *) getAllCustomer {
     NSMutableArray *customerList = [[NSMutableArray alloc] initWithCapacity:20];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"ClientCompact.asmx/getClientInfo"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"ClientCompact.asmx/getClientInfo"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -69,7 +69,7 @@
 }
 
 + (void) takeStatus:(Customer *) customer {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"UserCheck.asmx/ChangeLoginType"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"UserCheck.asmx/ChangeLoginType"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];

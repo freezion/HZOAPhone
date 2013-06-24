@@ -19,6 +19,7 @@
 @synthesize txtUserId;
 @synthesize txtPassword;
 @synthesize subButton;
+@synthesize flag;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    flag = 999;
 	// Do any additional setup after loading the view.
     [txtUserId becomeFirstResponder];
     [txtPassword becomeFirstResponder];
@@ -51,15 +53,19 @@
 }
 
 - (IBAction)login:(id)sender {
-    //验证用户名 密码]
-    subButton.hidden = YES;
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    HUD.dimBackground = NO;
-    [HUD setDelegate:self];
+    [txtUserId resignFirstResponder];
+    [txtPassword resignFirstResponder];
+    if (![self menu]) {
+        
+        NSArray *titles = @[@"主服务器",
+                            @"备用服务器",
+                            @"取消"];
+        _menu = [[MBButtonMenuViewController alloc] initWithButtonTitles:titles];
+        [_menu setDelegate:self];
+        [_menu setCancelButtonIndex:[[_menu buttonTitles]count]-1];
+    }
     
-    [HUD setFrame:CGRectMake(270, 195, 0, 0)];
-    [HUD showWhileExecuting:@selector(myLoginTask) onTarget:self withObject:nil animated:YES];
+    [[self menu] showInView:[self view]];
 }
 
 - (void)myLoginTask {
@@ -68,13 +74,20 @@
     NSLog(@"%@",user);
     NSString *pass = [txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSLog(@"%@",pass);
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"UserCheck.asmx/loginUserCheckForIOS"];
+    NSString *serviceAddr = @"";
+    if (flag == 0) {
+        serviceAddr = WEBSERVICE_ADDRESS;
+    } else if (flag == 1){
+        serviceAddr = WEBSERVICE_ADDRESS2;
+    }
+    
+    NSString *webserviceUrl = [serviceAddr stringByAppendingString:@"UserCheck.asmx/loginUserCheckForIOS"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     
     NSString *deviceType = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).deviceType;
     NSString *deviceTokenNum = ((AppDelegate *)[[UIApplication sharedApplication] delegate]).deviceTokenNum;
-     NSLog(@"%@",deviceType);
-     NSLog(@"%@",deviceTokenNum);
+    NSLog(@"%@",deviceType);
+    NSLog(@"%@",deviceTokenNum);
     
     NSString *model = [[UIDevice currentDevice] model];
     if ([model isEqualToString:@"iPhone Simulator"]) {
@@ -92,7 +105,6 @@
     [request buildPostBody];
     [request setDelegate:self];
     [request startSynchronous];
-    
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -137,6 +149,14 @@
             [usernamepasswordKVPairs setObject:@"0" forKey:KEY_NOTIFIY_NOTICE];
             [usernamepasswordKVPairs setObject:@"0" forKey:KEY_NOTIFIY_EMAIL];
             
+            if (flag == 0) {
+                [usernamepasswordKVPairs setObject:WEBSERVICE_ADDRESS forKey:KEY_WEBSERVICE_ADDRESS];
+                [usernamepasswordKVPairs setObject:FILE_ADDRESS forKey:KEY_FILE_ADDRESS];
+            } else if (flag == 1){
+                [usernamepasswordKVPairs setObject:WEBSERVICE_ADDRESS2 forKey:KEY_WEBSERVICE_ADDRESS];
+                [usernamepasswordKVPairs setObject:FILE_ADDRESS2 forKey:KEY_FILE_ADDRESS];
+            }
+            
             //save session
             [UserKeychain save:KEY_LOGINID_PASSWORD data:usernamepasswordKVPairs];
             
@@ -174,6 +194,39 @@
         [self login:nil];
     }
     return NO; // We do not want UITextField to insert line-breaks.
+}
+
+#pragma mark - MBButtonMenuViewControllerDelegate
+
+- (void)buttonMenuViewController:(MBButtonMenuViewController *)buttonMenu buttonTappedAtIndex:(NSUInteger)index
+{
+    //
+    //  Hide the menu
+    //
+    
+    [buttonMenu hide];
+    [txtUserId becomeFirstResponder];
+    //
+    //  Create a title
+    //
+    
+    //NSString *title = [[self menu] buttonTitles][index];
+    //验证用户名 密码]
+    subButton.hidden = YES;
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.dimBackground = NO;
+    [HUD setDelegate:self];
+
+    [HUD setFrame:CGRectMake(270, 195, 0, 0)];
+    [HUD showWhileExecuting:@selector(myLoginTask) onTarget:self withObject:nil animated:YES];
+    flag = index;
+}
+
+- (void)buttonMenuViewControllerDidCancel:(MBButtonMenuViewController *)buttonMenu
+{
+    [buttonMenu hide];
+    [txtUserId becomeFirstResponder];
 }
 
 @end

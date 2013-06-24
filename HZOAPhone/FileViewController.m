@@ -80,7 +80,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MyFolder *myFolder = [fileList objectAtIndex:[indexPath row]];
-    NSString *strUrl = [FILE_ADDRESS stringByAppendingString:myFolder.fileId];
+    NSString *strUrl = [[NSUtil chooseFileRealm] stringByAppendingString:myFolder.fileId];
     NSLog(@"strUrl ======= %@", strUrl);
     NSURL *URL = [NSURL URLWithString:strUrl];
     SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:URL];

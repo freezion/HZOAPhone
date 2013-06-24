@@ -29,7 +29,7 @@
 }
 
 + (void) deleteServiceMyFolder:(NSString *) myFolderId withEmployeeId:(id) employeeId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"employeefile.asmx/getAllData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"employeefile.asmx/getAllData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     //NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -52,7 +52,7 @@
 
 + (NSMutableArray *) getFileByCompanyId:(NSString *) companyId {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:0];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"memberFile.asmx/getAllFilesByFolderID"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"memberFile.asmx/getAllFilesByFolderID"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     //NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -75,7 +75,7 @@
 
 + (NSMutableArray *) getAllCompany {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:20];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"memberFile.asmx/getAllCompany"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"memberFile.asmx/getAllCompany"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     //NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];

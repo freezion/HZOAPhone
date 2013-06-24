@@ -29,4 +29,8 @@
 + (NSDate *) parserStringToAppendDate:(NSString *) currentDateStr withParten:(NSString *) parten;
 + (NSString *)appNameAndVersionNumberDisplayString;
 
++ (NSString *) chooseRealm;
+
++ (NSString *) chooseFileRealm;
+
 @end

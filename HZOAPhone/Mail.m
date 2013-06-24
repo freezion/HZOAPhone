@@ -56,7 +56,7 @@
 }
 
 + (NSString *)serviceAddEmail:(Mail *) mail {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Email.asmx/addEmailJSON"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Email.asmx/addEmailJSON"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     mail.ID, @"ID", 
@@ -94,7 +94,7 @@
 }
 
 + (NSString *)serviceSaveTmpEmail:(Mail *) mail {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Email.asmx/saveEmailJSON"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Email.asmx/saveEmailJSON"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     mail.ID, @"ID",
@@ -300,7 +300,7 @@
 
 + (NSMutableArray *) getWillDeleteMail:(NSString *) employeeId {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:20];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Email.asmx/getdeleteDta"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Email.asmx/getdeleteDta"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -323,7 +323,7 @@
 
 + (NSMutableArray *) getTmpMail:(NSString *) employeeId {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:20];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Email.asmx/getUnsendData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Email.asmx/getUnsendData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -347,7 +347,7 @@
 
 + (NSMutableArray *) getAllEmail:(id) employeeId withSync:(BOOL) flag {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:20];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Email.asmx/getdata"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Email.asmx/getdata"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -557,7 +557,7 @@
         sqlite3_close(hzoaDB);
     }
     
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Email.asmx/readEmailChangeStatus"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Email.asmx/readEmailChangeStatus"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -698,7 +698,7 @@
 }
 
 + (void)deleteEmailById:(id) emailId withEmployeeId:(id) employeeId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Email.asmx/delData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Email.asmx/delData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -732,7 +732,7 @@
 }
 
 + (void)deleteReceiveEmailById:(id) emailId withEmployeeId:(id) employeeId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Email.asmx/delData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Email.asmx/delData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];

@@ -149,7 +149,7 @@
 + (void)synchronizeEmployee
 {
     [Employee deleteAllEmployee];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Employee.asmx/EmployeeData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Employee.asmx/EmployeeData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIHTTPRequest *request = [ASIHTTPRequest requestWithURL:url];
@@ -161,7 +161,7 @@
 }
 
 + (void)sendDeviceInfo:(NSString *) userId withDeviceType:(NSString *) deviceType withDeviceToken:(NSString *) deviceToken {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/addDescription"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/addDescription"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:

@@ -66,7 +66,7 @@
 }
 
 + (NSString *)serviceAddNotice:(Notice *) notice {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Notice.asmx/addNoticeJson"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Notice.asmx/addNoticeJson"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                     notice.ID, @"ID", 
@@ -181,7 +181,7 @@
 
 + (NSMutableArray *) getAllNotice:(id) employeeId withSync:(BOOL) flag {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:20];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Notice.asmx/getAllNotice"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Notice.asmx/getAllNotice"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     //NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -358,7 +358,7 @@
         sqlite3_close(hzoaDB);
     }
     
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Notice.asmx/readNotice"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Notice.asmx/readNotice"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];

@@ -38,7 +38,7 @@
 @synthesize message;
 
 + (void)addServiceCarlendar:(NSString *) calendarId withIOSId:(NSString *) netId withEmployeeId:(NSString *) employeeId withEventStoreId:(NSString *) eventStoreId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"CalendaridIos.asmx/addData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"CalendaridIos.asmx/addData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod:@"POST"];
@@ -59,7 +59,7 @@
 }
 
 + (NSString *)selectServiceCarlendar:(NSString *) netId withEmployeeId:(NSString *) employeeId  withEventStoreId:(NSString *) eventStoreId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"CalendaridIos.asmx/getIOSId"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"CalendaridIos.asmx/getIOSId"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSString *calendarId = @"";
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -83,7 +83,7 @@
 }
 
 + (CalendarRelationship *)selectServiceCarlendarByIOSId:(NSString *) IOSId withEmployeeId:(NSString *) employeeId  withEventStoreId:(NSString *) eventStoreId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"CalendaridIos.asmx/getSearchData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"CalendaridIos.asmx/getSearchData"];
     CalendarRelationship *cs = [[CalendarRelationship alloc] init]; 
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSString *calendarValue = @"";
@@ -113,7 +113,7 @@
 }
 
 + (void)deleteServiceCarlendar:(NSString *) netId withEmployeeId:(NSString *) employeeId withEventStoreId:(NSString *) eventStoreId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"CalendaridIos.asmx/delData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"CalendaridIos.asmx/delData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod:@"POST"];
@@ -225,7 +225,7 @@
 }
 
 + (NSMutableArray *) getCalendarDataByDateTime:(NSDate *) startDate withEndDate:(NSDate *) endDate withEmployeeId:(NSString *) employeeId withCalendar:(EKCalendar *) calendar {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/searchData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/searchData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSString *start = [NSUtil parserDateToString:startDate];
     NSString *end = [NSUtil parserDateToString:endDate];
@@ -725,7 +725,7 @@
 
 + (Calendar *) getSingleCanlendar:(NSString *) calendarId {
     Calendar *calendarObj = [[Calendar alloc] init];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/singleData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/singleData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -744,7 +744,7 @@
 }
 
 + (void) senderMessage:(Calendar *) calendarObj withContext:(NSString *) context withEmployee:(NSString *) employeeId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/addDescription"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/addDescription"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     NSDictionary *jsonDictionary = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -771,7 +771,7 @@
 }
 
 + (NSString *) addCalendar:(Calendar *) calendar withEmployeeId:(NSString *) employeeId withEventStoreId: (NSString *) eventStoreId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/addCalendarJson"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/addCalendarJson"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     //@"123", @"ID",
@@ -831,7 +831,7 @@
 }
 
 + (NSString *) updateCalendar:(Calendar *) calendar {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/updateCanlendarJSON"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/updateCanlendarJSON"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     
@@ -873,7 +873,7 @@
 
 + (NSString *) deleteCalendar:(NSString *) calendarId withEmployeeId:(NSString *) employeeId withEventStoreId:
 (NSString *) eventStoreId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/deleteCalendar"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/deleteCalendar"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     
@@ -893,7 +893,7 @@
 }
 
 + (void) accpetEvent:(NSString *) eventId withEmployeeID:(NSString *) employeeId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/readCalendar"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/readCalendar"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     
@@ -910,7 +910,7 @@
 }
 
 + (void) rejectEvent:(NSString *) eventId withEmployeeID:(NSString *) employeeId {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/refuseCalendar"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/refuseCalendar"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     
@@ -925,7 +925,7 @@
 }
 
 + (NSMutableArray *) getAllMyData:(NSString *) employeeId withStartDate:(NSDate *) startDate withEndDate:(NSDate *) endDate {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/allMyData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/allMyData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     NSString *start = [NSUtil parserDateToString:startDate];
@@ -950,7 +950,7 @@
 }
 
 + (NSMutableArray *) allMySendData:(NSString *) employeeId withStartDate:(NSDate *) startDate withEndDate:(NSDate *) endDate {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/allMySendData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/allMySendData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     NSString *start = [NSUtil parserDateToString:startDate];
@@ -975,7 +975,7 @@
 }
 
 + (NSMutableArray *) allInvitedMeData:(NSString *) employeeId withStartDate:(NSDate *) startDate withEndDate:(NSDate *) endDate {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/allInvitedMeData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/allInvitedMeData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     NSString *start = [NSUtil parserDateToString:startDate];
@@ -1000,7 +1000,7 @@
 }
 
 + (NSMutableArray *) publicEventDate:(NSDate *) startDate withEndDate:(NSDate *) endDate {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/GetOpenCalendar"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/GetOpenCalendar"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     NSString *start = [NSUtil parserDateToString:startDate];
@@ -1025,7 +1025,7 @@
 
 + (Calendar *) getSinglePublicCalendar:(NSString *) calendarId {
     Calendar *calendarObj = [[Calendar alloc] init];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Calendar.asmx/singleOpenData"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/singleOpenData"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];

@@ -190,7 +190,7 @@
     if (actionSheet == attachmentActionSheet) {
         if (actionSheet.cancelButtonIndex != buttonIndex) {
             NSString *strUrl;
-            strUrl = [FILE_ADDRESS stringByAppendingString:[arrayFileIds objectAtIndex:buttonIndex]];
+            strUrl = [[NSUtil chooseFileRealm] stringByAppendingString:[arrayFileIds objectAtIndex:buttonIndex]];
             NSLog(@"strUrl ======= %@", strUrl);
             NSURL *URL = [NSURL URLWithString:strUrl];
             SVModalWebViewController *webViewController = [[SVModalWebViewController alloc] initWithURL:URL];

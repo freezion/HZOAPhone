@@ -6,8 +6,13 @@
 
 #define SELECTED_VIEW_CONTROLLER_TAG 98456345
 #define NOTIFICATION_IMAGE_VIEW_TAG 98456346
+
 #define WEBSERVICE_ADDRESS @"http://58.246.32.107:8008/"
+#define WEBSERVICE_ADDRESS2 @"http://222.68.19.91:8008/"
+
 #define FILE_ADDRESS @"http://58.246.32.107/Pages/Files/IOS/?id="
+#define FILE_ADDRESS2 @"http://222.68.19.91/Pages/Files/IOS/?id="
+
 #define KEY_LOGINID_PASSWORD @"com.czuft.hzoa.loginidpassword"
 #define KEY_LOGINID @"com.czuft.hzoa.loginid"
 #define KEY_USERID @"com.czuft.hzoa.userid"
@@ -17,13 +22,12 @@
 #define KEY_READ_CONTRACT @"com.czuft.hzoa.contract"
 #define KEY_DEVICETOKEN @"com.czuft.hzoa.deviceToken"
 #define KEY_PLACE @"com.czuft.hzoa.place"
+#define KEY_WEBSERVICE_ADDRESS @"com.czuft.hzoa.webserviceaddress"
+#define KEY_FILE_ADDRESS @"com.czuft.hzoa.fileaddress"
 #define KEY_NOTIFIY_CALENDAR @"0"
 #define KEY_NOTIFIY_NOTICE @"0"
 #define KEY_NOTIFIY_EMAIL @"0"
 #define KEY_CALENDAR @"Work"
-
-#define WEBSERVICE_ADDRESS2 @"http://211.143.254.235:8008/"
-#define FILE_ADDRESS2 @"http://58.246.32.107/Pages/Files/IOS/?id="
 
 #ifndef __IPHONE_3_0
 #warning "This project uses features only available in iOS SDK 3.0 and later."

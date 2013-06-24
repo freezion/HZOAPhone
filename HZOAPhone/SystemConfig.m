@@ -22,7 +22,7 @@
 
 + (NSMutableArray *) getNoticeType:(NSString *) employeeId {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:0];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Notice.asmx/GetNoticeSendType"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Notice.asmx/GetNoticeSendType"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -55,7 +55,7 @@
 
 + (NSMutableArray *)loadSystemConfigById:(NSString *) sender {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:20];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Setting.asmx/getSettingByTypeId"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Setting.asmx/getSettingByTypeId"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -168,7 +168,7 @@
 }
 
 + (NSString *) getVersion {
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"Setting.asmx/GetHighestAppVersion"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Setting.asmx/GetHighestAppVersion"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];

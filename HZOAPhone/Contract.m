@@ -17,7 +17,7 @@
 
 + (NSMutableArray *) getContractIdByCustomer:(NSString *) customerId {
     NSMutableArray *contractList = [[NSMutableArray alloc] initWithCapacity:20];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"ClientCompact.asmx/getCompactByClientID"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"ClientCompact.asmx/getCompactByClientID"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"customerId ==== %@", customerId);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
@@ -66,7 +66,7 @@
 
 + (Contract *) getContractInfoByContractId:(NSString *) contractId {
     Contract *contract = [[Contract alloc] init];
-    NSString *webserviceUrl = [WEBSERVICE_ADDRESS stringByAppendingString:@"ClientCompact.asmx/getCompactTimeByID"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"ClientCompact.asmx/getCompactTimeByID"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod:@"POST"];
