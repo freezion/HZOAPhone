@@ -20,7 +20,6 @@
     NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
     NSString *fileAddress = [usernamepasswordKVPairs objectForKey:KEY_FILE_ADDRESS];
     return fileAddress;
-    
 }
 
 + (NSDate *)beginningOfMonth
