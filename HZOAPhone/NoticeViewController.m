@@ -88,7 +88,6 @@
             [HUD setLabelText:@"数据加载..."];
             [HUD showWhileExecuting:@selector(refreshTableView) onTarget:self withObject:nil animated:YES];
         }
-        
     }
 }
 
