@@ -33,6 +33,16 @@
 	// Do any additional setup after loading the view.
     self.title = @"用户切换";
     [self.view setBackgroundColor:[UIColor colorWithRed:0.859 green:0.886 blue:0.925 alpha:1.0]];    
+    
+    if ([UIScreen mainScreen].bounds.size.height == 480.0) {
+        [self.lblUserId setFrame:CGRectMake(23, 73, 86, 21)];
+        [self.lblPassword setFrame:CGRectMake(23, 117, 86, 21)];
+        
+        [self.txtUserId setFrame:CGRectMake(112, 68, 178, 31)];
+        [self.txtPassword setFrame:CGRectMake(112, 112, 178, 31)];
+        [self.subButton setFrame:CGRectMake(224, 174, 96, 37)];
+    }
+    
     [self.txtUserId becomeFirstResponder];
     self.txtUserId.delegate = self;
     self.txtPassword.delegate = self;

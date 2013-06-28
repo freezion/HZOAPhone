@@ -26,6 +26,8 @@
     UIButton *subButton;
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *lblUserId;
+@property (nonatomic, retain) IBOutlet UILabel *lblPassword;
 @property (nonatomic, retain) IBOutlet UITextField *txtUserId;
 @property (nonatomic, retain) IBOutlet UITextField *txtPassword;
 @property (nonatomic, retain) IBOutlet UIButton *subButton;

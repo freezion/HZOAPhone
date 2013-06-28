@@ -35,8 +35,16 @@
     [super viewDidLoad];
     flag = 999;
 	// Do any additional setup after loading the view.
-    [txtUserId becomeFirstResponder];
-    [txtPassword becomeFirstResponder];
+    if ([UIScreen mainScreen].bounds.size.height == 480.0) {
+        [self.lblUserId setFrame:CGRectMake(23, 73, 86, 21)];
+        [self.lblPassword setFrame:CGRectMake(23, 117, 86, 21)];
+        
+        [self.txtUserId setFrame:CGRectMake(112, 68, 178, 31)];
+        [self.txtPassword setFrame:CGRectMake(112, 112, 178, 31)];
+        [self.subButton setFrame:CGRectMake(224, 174, 96, 37)];
+    }
+    
+    [self.txtUserId becomeFirstResponder];
     self.txtUserId.delegate = self;
     self.txtPassword.delegate = self;
 }

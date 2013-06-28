@@ -113,7 +113,7 @@ int indexOfTab = 0;
     /* ---------------------------------------------------------
      * Create the center for the main button and origin of animations
      * -------------------------------------------------------*/
-    CGPoint center = CGPointMake(self.view.frame.size.width - 22, 345.0f);
+    CGPoint center = CGPointMake(self.view.frame.size.width - 22, self.view.frame.size.height - 135.0f);
     
     /* ---------------------------------------------------------
      * Setup buttons
