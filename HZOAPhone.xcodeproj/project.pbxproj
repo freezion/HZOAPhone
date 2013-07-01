@@ -20,6 +20,7 @@
 		335447D0162D48A3002C2A54 /* RightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 335447CF162D48A3002C2A54 /* RightViewController.m */; };
 		33A32CF1177A75A5008768DA /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A32CF0177A75A5008768DA /* Default-568h@2x.png */; };
 		33A98D8616C24C0F00761F4B /* 24h.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A98D8516C24C0F00761F4B /* 24h.png */; };
+		33AAEF5817812AA900C04292 /* Intranet_iPhone.doc in Resources */ = {isa = PBXBuildFile; fileRef = 33AAEF5717812AA900C04292 /* Intranet_iPhone.doc */; };
 		33AD953A16576512003C375D /* changgong.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 33AD953916576512003C375D /* changgong.jpeg */; };
 		33AD953E165767F3003C375D /* RealCopyrightsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AD953D165767F3003C375D /* RealCopyrightsViewController.m */; };
 		33B36079165F13A30027DB18 /* ForwardEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B36078165F13A30027DB18 /* ForwardEmailViewController.m */; };
@@ -34,7 +35,6 @@
 		33B61653169CFBC000878F40 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B61650169CFBBF00878F40 /* Default@2x.png */; };
 		33B61654169CFBC000878F40 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B61651169CFBBF00878F40 /* Default.png */; };
 		33B6A9AE165486EC0086F05D /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B6A9AD165486EB0086F05D /* MapAnnotation.m */; };
-		33B6F82A16B0DA51003E58E3 /* Intranet_iPhone.doc in Resources */ = {isa = PBXBuildFile; fileRef = 33B6F82916B0DA51003E58E3 /* Intranet_iPhone.doc */; };
 		33B6F82E16B0DE18003E58E3 /* HelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B6F82D16B0DE17003E58E3 /* HelpViewController.m */; };
 		33B6F83016B0F460003E58E3 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33B6F82F16B0F45F003E58E3 /* QuickLook.framework */; };
 		33B6F83216B0F834003E58E3 /* writeCost.png in Resources */ = {isa = PBXBuildFile; fileRef = 33B6F83116B0F834003E58E3 /* writeCost.png */; };
@@ -257,6 +257,7 @@
 		335447CF162D48A3002C2A54 /* RightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightViewController.m; sourceTree = "<group>"; };
 		33A32CF0177A75A5008768DA /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		33A98D8516C24C0F00761F4B /* 24h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 24h.png; sourceTree = "<group>"; };
+		33AAEF5717812AA900C04292 /* Intranet_iPhone.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Intranet_iPhone.doc; sourceTree = "<group>"; };
 		33AD953916576512003C375D /* changgong.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = changgong.jpeg; sourceTree = "<group>"; };
 		33AD953C165767F3003C375D /* RealCopyrightsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealCopyrightsViewController.h; sourceTree = "<group>"; };
 		33AD953D165767F3003C375D /* RealCopyrightsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealCopyrightsViewController.m; sourceTree = "<group>"; };
@@ -277,7 +278,6 @@
 		33B61651169CFBBF00878F40 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		33B6A9AC165486EB0086F05D /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
 		33B6A9AD165486EB0086F05D /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
-		33B6F82916B0DA51003E58E3 /* Intranet_iPhone.doc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Intranet_iPhone.doc; sourceTree = "<group>"; };
 		33B6F82C16B0DE17003E58E3 /* HelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpViewController.h; sourceTree = "<group>"; };
 		33B6F82D16B0DE17003E58E3 /* HelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpViewController.m; sourceTree = "<group>"; };
 		33B6F82F16B0F45F003E58E3 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
@@ -997,7 +997,7 @@
 		33D06B5C1627F37100D8229A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				33B6F82916B0DA51003E58E3 /* Intranet_iPhone.doc */,
+				33AAEF5717812AA900C04292 /* Intranet_iPhone.doc */,
 				33BC2900165B56D7004755C0 /* chat.wav */,
 				33BC2901165B56D7004755C0 /* push.wav */,
 				33BC2902165B56D7004755C0 /* prlm_sound_pull.wav */,
@@ -1288,7 +1288,6 @@
 				33B6164E169CF89C00878F40 /* icon.png in Resources */,
 				33B61653169CFBC000878F40 /* Default@2x.png in Resources */,
 				33B61654169CFBC000878F40 /* Default.png in Resources */,
-				33B6F82A16B0DA51003E58E3 /* Intranet_iPhone.doc in Resources */,
 				33B6F83216B0F834003E58E3 /* writeCost.png in Resources */,
 				33B6F86216B8FDB3003E58E3 /* writeAdd.png in Resources */,
 				33BBC43116BA667100D579F5 /* group_btn@2x.png in Resources */,
@@ -1298,6 +1297,7 @@
 				33A98D8616C24C0F00761F4B /* 24h.png in Resources */,
 				3349274F16DC578E0045F86A /* info.png in Resources */,
 				33A32CF1177A75A5008768DA /* Default-568h@2x.png in Resources */,
+				33AAEF5817812AA900C04292 /* Intranet_iPhone.doc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

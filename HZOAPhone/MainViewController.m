@@ -398,7 +398,15 @@ int indexOfTab = 0;
             HUD.dimBackground = YES;
             [HUD setDelegate:self];
             [HUD setLabelText:@"数据加载..."];
-            [HUD showWhileExecuting:@selector(myEventList) onTarget:self withObject:nil animated:YES];
+            if (indexOfTab == 0) {
+                [HUD showWhileExecuting:@selector(myEventList) onTarget:self withObject:nil animated:YES];
+            } else if (indexOfTab == 1) {
+                [HUD showWhileExecuting:@selector(mySendList) onTarget:self withObject:nil animated:YES];
+            } else if (indexOfTab == 2) {
+                [HUD showWhileExecuting:@selector(myInvationList) onTarget:self withObject:nil animated:YES];
+            } else if (indexOfTab == 3) {
+                [HUD showWhileExecuting:@selector(publicEventList) onTarget:self withObject:nil animated:YES];
+            }
         }
         
     }

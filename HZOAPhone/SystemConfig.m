@@ -177,7 +177,7 @@
     [request setPostValue:@"iPhone" forKey:@"AppType"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startSynchronous];
+    [request startAsynchronous];
     NSString *retStr = @"";
     if(request.responseStatusCode == 200)
     {
