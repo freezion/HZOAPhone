@@ -167,14 +167,15 @@
 }
 
 - (void)sendNoticeShowHub:(id) sender {
-//    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-//    [self.view addSubview:HUD];
-//    HUD.dimBackground = YES;
-//    [HUD setDelegate:self];
-//    [HUD setLabelText:@"提交数据..."];
-//    [HUD showWhileExecuting:@selector(sendNotice) onTarget:self withObject:nil animated:YES];
+    [self.view endEditing:YES];
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.dimBackground = YES;
+    [HUD setDelegate:self];
+    [HUD setLabelText:@"提交数据..."];
+    [HUD showWhileExecuting:@selector(sendNotice) onTarget:self withObject:nil animated:YES];
     
-    [self sendNotice];
+    //[self sendNotice];
 }
 
 - (void)sendNotice {
@@ -213,10 +214,13 @@
         notice.deptment = @"";
         notice.status = @"2";
         [Notice serviceAddNotice:notice];
-        
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送完成" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
+        [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
     }
+}
+
+- (void) alertAdd {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送完成" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (BOOL) checkNoticeField {
@@ -314,6 +318,12 @@
 - (void) showContactNotice:(NSString *) contactId theName:(NSString *) contactName {
     [toField addTokenWithTitle:contactName representedObject:contactId];
     [self.listContactId setObject:contactId forKey:[NSString stringWithFormat:@"%d", toField.tokens.count]];
+}
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
 }
 
 @end

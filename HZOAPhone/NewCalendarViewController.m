@@ -287,12 +287,15 @@
         calendarObj.ProjectId = @"0";
     }
     if ([self checkCalendar]) {
+        [self.view endEditing:YES];
         HUD = [[MBProgressHUD alloc] initWithView:self.view];
         [self.view addSubview:HUD];
         HUD.dimBackground = YES;
         [HUD setDelegate:self];
         [HUD setLabelText:@"提交数据..."];
         [HUD showWhileExecuting:@selector(doSend:) onTarget:self withObject:nil animated:YES];
+        
+        //[MBHUDView hudWithBody:<#(NSString *)#> type:<#(MBAlertViewHUDType)#> hidesAfter:<#(float)#> show:<#(BOOL)#>
     }
 }
 
@@ -312,6 +315,7 @@
 }
 
 - (void)updateClicked {
+    [self.view endEditing:YES];
     calendarObj.Title = txtTitle.text;
     calendarObj.Location = txtLocation.text;
     calendarObj.Note = txtNotes.text;
@@ -380,9 +384,7 @@
 
 - (void) doEdit: (id) sender {
     [Calendar updateCalendar:calendarObj];
-    
-    UIAlertView *alertEdit = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改完毕" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
-    [alertEdit show];
+    [self performSelectorOnMainThread:@selector(alertEdit) withObject:nil waitUntilDone:NO];
 }
 
 - (void)saveCancel:(id) sender {
@@ -397,8 +399,17 @@
 - (void) doSend: (id) sender {
     [Calendar addCalendar:calendarObj withEmployeeId:[usernamepasswordKVPairs objectForKey:KEY_USERID] withEventStoreId:nil];
     
+    [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
+}
+
+- (void) alertAdd {
     alertAdd = [[UIAlertView alloc] initWithTitle:@"提示" message:@"添加完毕" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
     [alertAdd show];
+}
+
+- (void) alertEdit {
+    UIAlertView *alertEdit = [[UIAlertView alloc] initWithTitle:@"提示" message:@"修改完毕" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+    [alertEdit show];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -625,6 +636,12 @@
     eventTypeId = typeId;
     typeLabel.text = title;
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
 }
 
 @end

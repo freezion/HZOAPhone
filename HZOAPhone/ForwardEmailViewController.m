@@ -147,7 +147,7 @@
         [self dismissModalViewControllerAnimated:YES];
     } else if (buttonIndex == 1) {
         NSLog(@"储存草稿");
-        [self doSaveTmp];
+        [self doSaveTmpShowHub];
     }
 }
 
@@ -297,10 +297,14 @@
         // 已发送 2
         mail.status = @"1";
         [Mail serviceAddEmail:mail];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送完成" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-        //[self doCancel];
+        
+        [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
     }
+}
+
+- (void) alertAdd {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送完成" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (void)doSaveTmp {
@@ -359,17 +363,32 @@
     // 已发送 1
     mail.status = @"0";
     [Mail serviceAddEmail:mail];
+    [self performSelectorOnMainThread:@selector(alertSaveTmp) withObject:nil waitUntilDone:NO];
+}
+
+- (void) alertSaveTmp {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"已储存为草稿" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alert show];
 }
 
 - (void)doSendShowHub:(id) sender {
+    [self.view endEditing:YES];
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.dimBackground = YES;
     [HUD setDelegate:self];
     [HUD setLabelText:@"发送中..."];
     [HUD showWhileExecuting:@selector(doSend) onTarget:self withObject:nil animated:YES];
+}
+
+- (void)doSaveTmpShowHub {
+    [self.view endEditing:YES];
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.dimBackground = YES;
+    [HUD setDelegate:self];
+    [HUD setLabelText:@"存储中..."];
+    [HUD showWhileExecuting:@selector(doSaveTmp) onTarget:self withObject:nil animated:YES];
 }
 
 - (void)handleTokenFieldFrameDidChange:(NSNotification *)note
@@ -404,5 +423,10 @@
     }
 }
 
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
+}
 
 @end

@@ -92,7 +92,7 @@
     [request setPostValue:jsonString forKey:@"con"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startSynchronous];
 //    if(request.responseStatusCode == 200)
 //    {        
 //        NSString *responseString = [request responseString];
@@ -368,7 +368,7 @@
     [request setPostValue:employeeId forKey:@"employeeId"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startSynchronous];
+    [request startAsynchronous];
 }
 
 + (void)insertNotice:(Notice *) notice

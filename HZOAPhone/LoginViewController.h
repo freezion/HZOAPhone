@@ -19,6 +19,8 @@
     MBProgressHUD *HUD;
     UIButton *subButton;
     int flag;
+    NSString *user;
+    NSString *pass;
 }
 
 @property (nonatomic, retain) IBOutlet UILabel *lblUserId;
@@ -28,6 +30,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *subButton;
 @property (nonatomic, strong) MBButtonMenuViewController *menu;
 @property (nonatomic) int flag;
+@property (nonatomic, retain) NSString *user;
+@property (nonatomic, retain) NSString *pass;
 
 - (IBAction)login:(id)sender;
 

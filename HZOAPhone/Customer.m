@@ -82,7 +82,7 @@
     [request setPostValue:customer.Location forKey:@"Location"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startSynchronous];
+    [request startAsynchronous];
     
     
 }

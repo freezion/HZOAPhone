@@ -157,7 +157,7 @@
     [request addRequestHeader:@"Content-Type" value:@"text/xml; charset=utf-8"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startSynchronous];
+    [request startAsynchronous];
 }
 
 + (void)sendDeviceInfo:(NSString *) userId withDeviceType:(NSString *) deviceType withDeviceToken:(NSString *) deviceToken {

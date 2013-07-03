@@ -17,6 +17,8 @@
 @synthesize txtUserId;
 @synthesize txtPassword;
 @synthesize subButton;
+@synthesize user;
+@synthesize pass;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -60,6 +62,9 @@
 }
 
 - (IBAction)login:(id)sender {
+    user = [txtUserId.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+   pass = [txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+
     //验证用户名 密码]
     subButton.hidden = YES;
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
@@ -72,9 +77,7 @@
 }
 
 - (void)myLoginTask {
-    NSString *user = [txtUserId.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSString *pass = [txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
+        
     NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"UserCheck.asmx/loginUserCheckForIOS"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     
@@ -96,7 +99,7 @@
     [request setPostValue:deviceTokenNum forKey:@"deviceToken"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startSynchronous];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request
@@ -122,7 +125,7 @@
             NSString *deptId = [listItems objectAtIndex:2];
             NSString *canRead = [listItems objectAtIndex:3];
             //用户名和密码存入keychain
-            NSMutableDictionary *usernamepasswordKVPairs = [NSMutableDictionary dictionary];
+            NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *) [UserKeychain load:KEY_LOGINID_PASSWORD];
             [usernamepasswordKVPairs setObject:txtUserId.text forKey:KEY_LOGINID];
             [usernamepasswordKVPairs setObject:txtPassword.text forKey:KEY_PASSWORD];
             [usernamepasswordKVPairs setObject:userId forKey:KEY_USERID];
@@ -224,6 +227,12 @@
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:memberViewController];
     
     [menuController setRootController:navController animated:YES];
+}
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
 }
 
 @end

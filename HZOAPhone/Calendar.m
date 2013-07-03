@@ -805,7 +805,7 @@
     [request buildPostBody];
     [request setTimeOutSeconds:10];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startSynchronous];
     
     NSLog(@"The Response String is: %@",[request responseString]);
     

@@ -20,6 +20,8 @@
 @synthesize txtPassword;
 @synthesize subButton;
 @synthesize flag;
+@synthesize user;
+@synthesize pass;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,6 +65,11 @@
 - (IBAction)login:(id)sender {
     [txtUserId resignFirstResponder];
     [txtPassword resignFirstResponder];
+    subButton.hidden = YES;
+    user = [txtUserId.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSLog(@"%@",user);
+    pass = [txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    NSLog(@"%@",pass);
     if (![self menu]) {
         
         NSArray *titles = @[@"主服务器",
@@ -78,10 +85,7 @@
 
 - (void)myLoginTask {
     
-    NSString *user = [txtUserId.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSLog(@"%@",user);
-    NSString *pass = [txtPassword.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSLog(@"%@",pass);
+   
     NSString *serviceAddr = @"";
     if (flag == 0) {
         serviceAddr = WEBSERVICE_ADDRESS;
@@ -220,13 +224,11 @@
     
     //NSString *title = [[self menu] buttonTitles][index];
     //验证用户名 密码]
-    subButton.hidden = YES;
-    HUD = [[MBProgressHUD alloc] initWithView:self.view];
-    [self.view addSubview:HUD];
-    HUD.dimBackground = NO;
-    [HUD setDelegate:self];
 
-    [HUD setFrame:CGRectMake(270, 195, 0, 0)];
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [HUD setDelegate:self];
+    [HUD setFrame:CGRectMake(270, 245, 0, 0)];
+    [self.view addSubview:HUD];
     [HUD showWhileExecuting:@selector(myLoginTask) onTarget:self withObject:nil animated:YES];
     flag = index;
 }
@@ -235,6 +237,13 @@
 {
     [buttonMenu hide];
     [txtUserId becomeFirstResponder];
+    subButton.hidden = NO;
+}
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
 }
 
 @end

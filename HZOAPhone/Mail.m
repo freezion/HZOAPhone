@@ -88,7 +88,7 @@
     [request setPostValue:jsonString forKey:@"con"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startSynchronous];
     NSLog(@" responseString ===== %@", [request responseString]);
     return @"";
 }
@@ -126,7 +126,7 @@
     [request setPostValue:jsonString forKey:@"con"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startSynchronous];
     NSLog(@" responseString ===== %@", [request responseString]);
     return @"";
 }
@@ -567,7 +567,7 @@
     [request setPostValue:employeeId forKey:@"employeeId"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startSynchronous];
+    [request startAsynchronous];
 }
 
 + (void)dropEmailTable {

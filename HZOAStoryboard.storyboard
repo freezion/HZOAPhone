@@ -1233,7 +1233,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -1844,7 +1844,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="LaQ-Ti-m7m" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="88" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="pUm-YT-eNS" customClass="JSTokenField">
@@ -1878,7 +1878,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="2hQ-ZO-iKV">
-                                        <rect key="frame" x="0.0" y="123" width="320" height="293"/>
+                                        <rect key="frame" x="0.0" y="123" width="320" height="381"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -1915,7 +1915,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="geG-Kp-Lcj" customClass="JSTokenField">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -2389,7 +2389,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mIQ-UR-npt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662" y="815"/>
+            <point key="canvasLocation" x="656" y="839"/>
         </scene>
         <!--Choose Type View Controller-->
         <scene sceneID="Zkl-m3-sf7">
@@ -2434,17 +2434,17 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="9mm-m2-CB5" customClass="JSTokenField">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="gkk-tL-Qv6" customClass="JSTokenField">
-                                        <rect key="frame" x="0.0" y="41" width="320" height="128"/>
+                                        <rect key="frame" x="0.0" y="41" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="KfC-lY-5lB">
-                                        <rect key="frame" x="0.0" y="123" width="320" height="293"/>
+                                        <rect key="frame" x="0.0" y="123" width="320" height="381"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2861,7 +2861,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cS1-l4-LCH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-100" y="223"/>
+            <point key="canvasLocation" x="-128" y="107"/>
         </scene>
         <!--New Email View Controller-->
         <scene sceneID="zGZ-sW-Vrf">
@@ -2872,7 +2872,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yR9-q1-2d8" customClass="TPKeyboardAvoidingScrollView">
-                                <rect key="frame" x="0.0" y="88" width="320" height="416"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="504"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="Uuc-ln-Job" customClass="JSTokenField">
@@ -2906,7 +2906,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="dwT-Kb-Aa6">
-                                        <rect key="frame" x="0.0" y="123" width="320" height="293"/>
+                                        <rect key="frame" x="0.0" y="123" width="320" height="381"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2933,7 +2933,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HbV-j0-fck" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="226"/>
+            <point key="canvasLocation" x="304" y="238"/>
         </scene>
         <!--New Notice View Controller-->
         <scene sceneID="li1-26-6xT">
@@ -2982,7 +2982,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="qea-qt-bfY">
-                                        <rect key="frame" x="0.0" y="82" width="320" height="334"/>
+                                        <rect key="frame" x="0.0" y="82" width="320" height="422"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
@@ -3208,6 +3208,360 @@
         <image name="writeEmail.png" width="32" height="32"/>
         <image name="writeNotice.png" width="32" height="32"/>
     </resources>
+    <classes>
+        <class className="CalendarCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalendarCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="alldayImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="endTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="eventNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startTextLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startTimeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CalendarDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalendarDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="acceptEvent:"/>
+                <relationship kind="action" name="rejectEvent:"/>
+                <relationship kind="outlet" name="accpetButton" candidateClass="UIGlossyButton"/>
+                <relationship kind="outlet" name="accpetCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="alertCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="buttonCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="contextTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="contractEndDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contractNum" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contractStartDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="customerCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="customerNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="eventTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="importCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="invationCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="notesCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="privateCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="rejectButton" candidateClass="UIGlossyButton"/>
+                <relationship kind="outlet" name="retMessageButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="senderCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="startDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeCell" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="CalenderChooseViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalenderChooseViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="allDaySwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="endLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ChangeUserViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChangeUserViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="outlet" name="lblPassword" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblUserId" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="subButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="txtPassword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="txtUserId" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ChooseContractViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseContractViewController.h"/>
+        </class>
+        <class className="ChooseCustomerViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseCustomerViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="ChooseEmployeeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseEmployeeViewController.h"/>
+        </class>
+        <class className="ChooseMostViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseMostViewController.h"/>
+        </class>
+        <class className="ChooseTypeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ChooseTypeViewController.h"/>
+        </class>
+        <class className="ContactCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ContactCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="textOne" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="textTwo" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CopyrightViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CopyrightViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="regionsMapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="EmailDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EmailDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tappedAttachMentButton:"/>
+                <relationship kind="outlet" name="btnAttachment" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lblCcName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblReceiveName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblSenderName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="txtContext" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="EmailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EmailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tabBarCustom" candidateClass="UITabBar"/>
+                <relationship kind="outlet" name="tableViewCustom" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="EventAlertViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/EventAlertViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="CellFifteen" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="CellFortyFive" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="CellNone" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="CellOneHour" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="CellThirty" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="FileCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="fileName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="uploadEmp" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="uploadTime" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FileViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FileViewController.h"/>
+        </class>
+        <class className="ForwardEmailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ForwardEmailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ccField" candidateClass="JSTokenField"/>
+                <relationship kind="outlet" name="contextTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="lblEmailType" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="TPKeyboardAvoidingScrollView"/>
+                <relationship kind="outlet" name="subTitle" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="toField" candidateClass="JSTokenField"/>
+            </relationships>
+        </class>
+        <class className="HelpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/HelpViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="InvitEmployeeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InvitEmployeeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="toField" candidateClass="JSTokenField"/>
+            </relationships>
+        </class>
+        <class className="JSTokenField" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JSTokenField.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="outlet" name="lblPassword" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblUserId" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="subButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="txtPassword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="txtUserId" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="MailCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MailCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="attachmentImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="importLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="readImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="senderLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="MainViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MainViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tabBarCustom" candidateClass="UITabBar"/>
+                <relationship kind="outlet" name="tableViewCustom" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MemberViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MemberViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="searchBar" candidateClass="UISearchBar"/>
+            </relationships>
+        </class>
+        <class className="MostContactViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MostContactViewController.h"/>
+        </class>
+        <class className="NewCalendarViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewCalendarViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="alertLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contractEndLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contractIdLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="contractStartLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="customerCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="customerNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="endLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="invitionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="switchImport" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="switchPrivate" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="txtLocation" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="txtNotes" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="txtTitle" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NewEmailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewEmailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ccField" candidateClass="JSTokenField"/>
+                <relationship kind="outlet" name="contextTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="lblEmailType" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="TPKeyboardAvoidingScrollView"/>
+                <relationship kind="outlet" name="subTitle" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="toField" candidateClass="JSTokenField"/>
+            </relationships>
+        </class>
+        <class className="NewNoticeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NewNoticeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contextTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="lblNoticeTitle" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblNoticeType" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="TPKeyboardAvoidingScrollView"/>
+                <relationship kind="outlet" name="subTitle" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="toField" candidateClass="JSTokenField"/>
+                <relationship kind="outlet" name="typeView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="NoticeCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoticeCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="attachmentImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="detailLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="readImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="senderLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="NoticeDetailViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoticeDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="tappedAttachMentButton:"/>
+                <relationship kind="outlet" name="attchmentButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="lblNoticeTitile" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblSendDate" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblSendType" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="lblSenderName" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="txtContext" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="NoticeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NoticeViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableViewCustom" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="PublicCalendarViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/PublicCalendarViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="contextTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="creatorCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="endDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="eventTitleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="startDateLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="RealCopyrightsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RealCopyrightsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="goAppStore:"/>
+                <relationship kind="action" name="showSite:"/>
+                <relationship kind="outlet" name="urlButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="versionLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="ReplyEmailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ReplyEmailViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="ccField" candidateClass="JSTokenField"/>
+                <relationship kind="outlet" name="contextTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="lblEmailType" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="TPKeyboardAvoidingScrollView"/>
+                <relationship kind="outlet" name="subTitle" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="toField" candidateClass="JSTokenField"/>
+            </relationships>
+        </class>
+        <class className="RightViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RightViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancelLogin:"/>
+                <relationship kind="action" name="showCopyright:"/>
+                <relationship kind="action" name="showHelp:"/>
+                <relationship kind="action" name="showLogin:"/>
+                <relationship kind="action" name="showMostContact:"/>
+                <relationship kind="action" name="showNewCalendar:"/>
+                <relationship kind="action" name="showNewEmail:"/>
+                <relationship kind="action" name="showNewNotice:"/>
+                <relationship kind="action" name="showSettings:"/>
+                <relationship kind="outlet" name="flagImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="userName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="SettingViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="calendarCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="emailCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="memberCell" candidateClass="UITableViewCell"/>
+                <relationship kind="outlet" name="noticeCell" candidateClass="UITableViewCell"/>
+            </relationships>
+        </class>
+        <class className="SpringBoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SpringBoardViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showCalendar:"/>
+                <relationship kind="action" name="showEmail:"/>
+                <relationship kind="action" name="showMember:"/>
+                <relationship kind="action" name="showNotice:"/>
+                <relationship kind="outlet" name="calendarButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="calendarImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="emailButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="emailImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="noticeButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="noticeImage" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="SwitchViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SwitchViewController.h"/>
+        </class>
+        <class className="TPKeyboardAvoidingScrollView" superclassName="UIScrollView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TPKeyboardAvoidingScrollView.h"/>
+        </class>
+        <class className="UIGlossyButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UIGlossyButton.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

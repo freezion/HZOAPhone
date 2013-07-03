@@ -159,7 +159,8 @@
     return flag;
 }
 
-- (void)doSendShowHub:(id) sender {
+- (void)doSendShowHub {
+    [self.view endEditing:YES];
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [self.view addSubview:HUD];
     HUD.dimBackground = YES;
@@ -219,10 +220,23 @@
         // 已发送 1
         mail.status = @"1";
         [Mail serviceAddEmail:mail];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送完成" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-        [alert show];
-        //[self doCancel];
+        [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
     }
+}
+
+- (void) alertAdd {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送完成" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+- (void)doSaveTmpShowHub {
+    [self.view endEditing:YES];
+    HUD = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.view addSubview:HUD];
+    HUD.dimBackground = YES;
+    [HUD setDelegate:self];
+    [HUD setLabelText:@"保存中..."];
+    [HUD showWhileExecuting:@selector(doSaveTmp) onTarget:self withObject:nil animated:YES];
 }
 
 - (void)doSaveTmp {
@@ -286,6 +300,11 @@
     // 存储草稿 0
     mail.status = @"0";
     [Mail serviceSaveTmpEmail:mail];
+    
+    [self performSelectorOnMainThread:@selector(alertTmp) withObject:nil waitUntilDone:NO];
+}
+
+- (void) alertTmp {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"已储存为草稿" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alert show];
 }
@@ -326,7 +345,7 @@
     buttonFrame.size.width = buttonImage.size.width;
     buttonFrame.size.height = buttonImage.size.height;
     [button setFrame:buttonFrame];
-    [button addTarget:self action:@selector(doSend) forControlEvents:UIControlEventTouchUpInside];
+    [button addTarget:self action:@selector(doSendShowHub) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *buttonBar = [[UIBarButtonItem alloc] initWithCustomView:button];
     return buttonBar;
 }
@@ -382,7 +401,8 @@
         [menuController showRightController:YES];
     } else if (buttonIndex == 1) {  
         NSLog(@"储存草稿");
-        [self doSaveTmp];
+        [self.view endEditing:YES];
+        [self doSaveTmpShowHub];
     } 
 }
 
@@ -451,6 +471,15 @@
         [ccField addTokenWithTitle:contactName representedObject:contactId];
         [self.listCCContactId setObject:contactId forKey:[NSString stringWithFormat:@"%d", ccField.tokens.count]];
     }
+}
+
+#pragma mark -
+#pragma mark MBProgressHUDDelegate methods
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+	// Remove HUD from screen when the HUD was hidded
+	[HUD removeFromSuperview];
+	HUD = nil;
 }
 
 @end
