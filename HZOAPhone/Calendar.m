@@ -477,7 +477,7 @@
 + (NSMutableArray *)loadCalendar:(NSData *) responseData withCalendar:(EKCalendar *) calendarType withSync:(BOOL) flag	withEmployeeId:(NSString *) employeeId {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:20];
     NSError *error;
-    EKEventStore *eventStore = [[EKEventStore alloc] init];
+    
     //NSLog(@"eventStore ==== %@", eventStore.eventStoreIdentifier);
     GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithData:responseData options:0 error:&error];
     if (doc == nil) { return nil; }
@@ -657,6 +657,7 @@
             calendar.ProjectEndTime = @"";
         }
         if (flag) {
+            EKEventStore *eventStore = [[EKEventStore alloc] init];
             NSLog(@"calendar.ID ==== %@", calendar.ID);
             NSString *localId = [Calendar selectServiceCarlendar:calendar.ID withEmployeeId:employeeId withEventStoreId:eventStore.eventStoreIdentifier];
             NSLog(@"localId === %@", localId);

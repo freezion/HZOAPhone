@@ -37,6 +37,7 @@
     NSString *deviceTokenNum;
     NSString *model;
     NSString *location;
+    int calendarExists;
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *tableViewCustom;
@@ -47,5 +48,6 @@
 @property (nonatomic, retain) EKEventStore *eventStore;
 @property (nonatomic, retain) EKCalendar *defaultCalendar;
 @property (nonatomic, retain) NSString *myCalendarType;
+@property (nonatomic) int calendarExists;
 
 @end

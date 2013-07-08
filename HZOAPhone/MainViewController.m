@@ -36,6 +36,7 @@ int indexOfTab = 0;
 @synthesize eventStore;
 @synthesize myCalendarType;
 @synthesize refreshFlag;
+@synthesize calendarExists;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,8 +62,8 @@ int indexOfTab = 0;
 	}
 	//  update the last update date
 	[_refreshHeaderView refreshLastUpdatedDate];
+    eventStore = [[EKEventStore alloc] init];
     
-    self.eventStore = [[EKEventStore alloc] init];
     if ([eventStore respondsToSelector:@selector(requestAccessToEntityType:completion:)])
     {
         // the selector is available, so we must be on iOS 6 or newer
@@ -80,14 +81,18 @@ int indexOfTab = 0;
                 }
                 else
                 {
-                    self.defaultCalendar = [self.eventStore defaultCalendarForNewEvents];
+                    //[self checkForCalendar];
+                    //defaultCalendar = [eventStore defaultCalendarForNewEvents];
+                    [self checkForCalendar];
                 }
             });
         }];
     }
     else
     {
-        self.defaultCalendar = [self.eventStore defaultCalendarForNewEvents];
+        //self.defaultCalendar = [eventStore defaultCalendarForNewEvents];
+        [self checkForCalendar];
+        //defaultCalendar = [eventStore defaultCalendarForNewEvents];
     }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
@@ -150,6 +155,44 @@ int indexOfTab = 0;
      * Set our property and add it to the view
      * -------------------------------------------------------*/
     [[self view] addSubview:bar];
+}
+
+-(void)checkForCalendar {
+    NSArray *calendarArray = [eventStore calendarsForEntityType:EKEntityTypeEvent];
+    //NSLog(@"%@", calendarArray);
+    calendarExists = 0;
+    for (int x = 0; x < [calendarArray count]; x++) {
+        EKCalendar *cal = [calendarArray objectAtIndex:x];
+        NSString *title = [cal title];
+        if ([title isEqualToString:@"SHCS Work"] ) {
+            calendarExists = 1;
+            [eventStore removeCalendar:cal commit:YES error:nil];
+            break;
+        }
+    }
+    
+    [self createCalendar];
+    
+}
+
+-(void)createCalendar {
+    
+    NSLog(@"%d",calendarExists);      
+    // Get the calendar source
+    EKSource *localSource = nil;
+    for (EKSource *source in eventStore.sources) {
+        if (source.sourceType == EKSourceTypeLocal)
+        {
+            localSource = source;
+            break;
+        }
+    }
+    defaultCalendar = [EKCalendar calendarWithEventStore:eventStore];
+    defaultCalendar.title = @"SHCS Work";
+    defaultCalendar.source = localSource;
+    NSError *error;
+    [eventStore saveCalendar:defaultCalendar commit:YES error:&error];
+    //NSLog(@"cal id = %@", defaultCalendar.calendarIdentifier);
 }
 
 //获得自己的当前的位置信息
@@ -262,15 +305,14 @@ int indexOfTab = 0;
 - (NSArray *)fetchEventsForToday:(NSDate *) startDate {
     NSTimeInterval  interval = 24 * 60 * 60 * 3;
     NSDate *endDate = [currentDate initWithTimeIntervalSinceNow:+interval];
-    
 	// Create the predicate. Pass it the default calendar.
 	NSArray *calendarArray = [NSArray arrayWithObject:defaultCalendar];
     
-	NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:startDate endDate:endDate
+	NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:startDate endDate:endDate
                                                                     calendars:calendarArray];
 	
 	// Fetch all events that match the predicate.
-	NSArray *events = [self.eventStore eventsMatchingPredicate:predicate];
+	NSArray *events = [eventStore eventsMatchingPredicate:predicate];
 	return events;
 }
 

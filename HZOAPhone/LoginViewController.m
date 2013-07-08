@@ -227,7 +227,13 @@
 
     HUD = [[MBProgressHUD alloc] initWithView:self.view];
     [HUD setDelegate:self];
-    [HUD setFrame:CGRectMake(270, 245, 0, 0)];
+    if ([UIScreen mainScreen].bounds.size.height == 480.0) {
+        [HUD setFrame:CGRectMake(270, 205, 0, 0)];
+    } else {
+        [HUD setFrame:CGRectMake(270, 245, 0, 0)];
+    }
+    
+    
     [self.view addSubview:HUD];
     [HUD showWhileExecuting:@selector(myLoginTask) onTarget:self withObject:nil animated:YES];
     flag = index;
