@@ -74,11 +74,11 @@
 #pragma mark -
 #pragma mark Cells
 
-- (UITableViewCell *) cellForRow:(NSUInteger)row {
+- (UITableViewCell *) cellForRow:(NSUInteger)row withButtonId:(UIButton *) buttonId {
 	UITableViewCell* cell = nil;
 	
 	if (row == 0) cell = [self titleCell];
-	else cell = [self contentCellForRow:row - 1];
+	else cell = [self contentCellForRow:row - 1 withButtonId:buttonId];
 	
 	return cell;
 }
@@ -107,7 +107,7 @@
 	return cell;
 }
 
-- (UITableViewCell *) contentCellForRow:(NSUInteger)row {
+- (UITableViewCell *) contentCellForRow:(NSUInteger)row withButtonId:(UIButton *) buttonId {
 //	NSString* contentCellIdentifier = [NSStringFromClass([self class]) stringByAppendingString:@"content"];
 //	
 //	UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:contentCellIdentifier];
@@ -127,12 +127,30 @@
 		cell = [[ContactCell alloc] initWithStyle:UITableViewCellStyleDefault 
                                   reuseIdentifier:CellIdentifier];
 	}
-    
+     
 	// Get the event at the row selected and display it's title
     Employee *employee = [self titleContentForEmployee:row];
 	cell.textOne.text = employee._name;
     cell.textTwo.text = employee._id;
+    [cell setAccessoryType:UITableViewCellAccessoryNone];
     
+    NSArray *selectedList = [[NSArray alloc] init];
+    
+    if (buttonId.tag == 0) {
+        selectedList = [Employee getTmpContactByCC:@"0"];
+    } else {
+        selectedList = [Employee getTmpContactByCC:@"1"];
+    }
+    
+    if (selectedList) {
+        for (int i = 0; i < selectedList.count; i ++) {
+            Employee *tmpEmployee = [selectedList objectAtIndex:i];
+            if ([tmpEmployee._id isEqualToString:employee._id]) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+                break;
+            }
+        }
+    }
 	return cell;
 }
 
@@ -147,7 +165,7 @@
 		path = @"DownAccessory";
 		cell.textLabel.textColor = (self.titleTextColor == nil ? [UIColor blackColor] : self.titleTextColor);
 	}
-	
+	//cell.backgroundColor = [UIColor grayColor];
 	UIImage* accessoryImage = [UIImage imageNamed:path];
 	UIImage* whiteAccessoryImage = [UIImage imageNamed:[[path stringByDeletingPathExtension] stringByAppendingString:@"White"]];
 	
@@ -168,12 +186,12 @@
 #pragma mark -
 #pragma mark Select Cell
 
-- (void) didSelectCellAtRow:(NSUInteger)row withButtonId:(UIButton *) buttonId {
+- (void) didSelectCellAtRow:(NSUInteger)row withButtonId:(UIButton *) buttonId withIndexPath:(NSIndexPath *) indexPath {
 	if (row == 0) {
         [self didSelectTitleCell];
     }
 	else {
-        [self didSelectContentCellAtRow:row - 1  withButtonId:buttonId];
+        [self didSelectContentCellAtRow:row - 1  withButtonId:buttonId withIndexPath:indexPath];
     }
 }
 
@@ -205,7 +223,7 @@
 
 - (void) didSelectContentCellAtRow:(NSUInteger)row {}
 
-- (void) didSelectContentCellAtRow:(NSUInteger)row withButtonId:(UIButton *) buttonId {
+- (void) didSelectContentCellAtRow:(NSUInteger)row withButtonId:(UIButton *) buttonId withIndexPath:(NSIndexPath *) indexPath {
 
 }
 

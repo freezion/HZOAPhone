@@ -28,6 +28,7 @@
 @synthesize cleanHtml;
 @synthesize ccList;
 @synthesize ccListName;
+@synthesize isChecked;
 
 + (NSString *)serviceTestJava {
     NSString *webserviceUrl = @"http://10.1.2.114:8080/eLife/services/rest/getCardById";
@@ -200,7 +201,7 @@
                 // copyId
                 NSString *copyIdField = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 17)];
                 mail.ccList = copyIdField;
-                
+                mail.isChecked = NO;
                 [dataList addObject:mail];
             }
             sqlite3_finalize(statement);
@@ -280,7 +281,7 @@
                 // copyId
                 NSString *copyIdField = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 17)];
                 mail.ccList = copyIdField;
-                
+                mail.isChecked = NO;
                 [dataList addObject:mail];
             }
             sqlite3_finalize(statement);

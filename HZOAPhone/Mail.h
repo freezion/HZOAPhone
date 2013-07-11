@@ -32,6 +32,7 @@
     NSString *cleanHtml;
     NSString *ccList;
     NSString *ccListName;
+    BOOL isChecked;
 }
 
 @property (nonatomic, retain) NSString *ID;
@@ -52,6 +53,7 @@
 @property (nonatomic, retain) NSString *cleanHtml;
 @property (nonatomic, retain) NSString *ccList;
 @property (nonatomic, retain) NSString *ccListName;
+@property (assign, nonatomic) BOOL isChecked;
 
 + (void)createEmailTable;
 + (void)dropEmailTable;

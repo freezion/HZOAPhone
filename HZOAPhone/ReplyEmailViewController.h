@@ -15,6 +15,7 @@
 
 @protocol ReplyEmailDelegate <NSObject>
 - (void) showContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId;
+- (void) deleteContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId;
 @end
 
 @interface ReplyEmailViewController : UIViewController<JSTokenFieldDelegate, UIActionSheetDelegate, UIAlertViewDelegate, MBProgressHUDDelegate, ReplyEmailDelegate> {
@@ -26,8 +27,6 @@
     UILabel *lblEmailType;
     TPKeyboardAvoidingScrollView *scrollView;
     MBProgressHUD *HUD;
-    NSMutableDictionary *listContactId;
-    NSMutableDictionary *listCCContactId;
     
     UITextField *subTitle;
     Mail *mail;
@@ -44,8 +43,6 @@
 @property (nonatomic, retain) IBOutlet UITextView *contextTextView;
 @property (nonatomic, retain) UIToolbar *keyboardToolbar;
 @property (nonatomic, retain) IBOutlet UITextField *subTitle;
-@property (nonatomic, retain) NSMutableDictionary *listContactId;
-@property (nonatomic, retain) NSMutableDictionary *listCCContactId;
 @property (nonatomic, retain) UIButton *toButton;
 @property (nonatomic, retain) UIButton *ccButton;
 @property (nonatomic, retain) Mail *mail;

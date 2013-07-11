@@ -16,7 +16,7 @@
 - (id) initWithViewController:(UIViewController*) givenViewController;
 
 //Used by the UITableView's dataSource
-- (UITableViewCell*) cellForRow:(NSUInteger) row;
+- (UITableViewCell*) cellForRow:(NSUInteger) row withButtonId:(UIButton *) buttonId;
 @property (nonatomic, readonly) NSUInteger numberOfRow;
 
 //Customize appearance
@@ -33,10 +33,10 @@
 
 //Can be subclassed for more control
 - (UITableViewCell*) titleCell;
-- (UITableViewCell*) contentCellForRow:(NSUInteger) row;
+- (UITableViewCell*) contentCellForRow:(NSUInteger) row withButtonId:(UIButton *) buttonId;
 
 //Respond to cell selection
-- (void) didSelectCellAtRow:(NSUInteger) row withButtonId:(UIButton *) buttonId;
+- (void) didSelectCellAtRow:(NSUInteger) row withButtonId:(UIButton *) buttonId withIndexPath:(NSIndexPath *) indexPath;
 - (void) didSelectTitleCell;
 - (void) didSelectContentCellAtRow:(NSUInteger) row;
 

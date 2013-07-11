@@ -30,8 +30,22 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
-
+    
     // Configure the view for the selected state
+}
+
+- (void) setChecked:(BOOL)checked {
+    if (checked)
+	{
+		readImageView.image = [UIImage imageNamed:@"Selected.png"];
+		self.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
+	}
+	else
+	{
+		readImageView.image = [UIImage imageNamed:@"Unselected.png"];
+		self.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
+	}
+	m_checked = checked;
 }
 
 @end

@@ -26,7 +26,7 @@
     NSString *_sex;
     NSString *_partyId;
     NSString *_partyName;
-    
+    NSString *_forCC;
     CLLocationManager *locationManager;
 }
 
@@ -42,6 +42,7 @@
 @property (nonatomic, retain) NSString *_sex;
 @property (nonatomic, retain) NSString *_partyId;
 @property (nonatomic, retain) NSString *_partyName;
+@property (nonatomic, retain) NSString *_forCC;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 
 + (void)synchronizeEmployee;
@@ -50,10 +51,17 @@
 + (void)dropEmployeeTable;
 + (void)createEmployeeTable;
 + (void)createMostContactTable;
++ (void)createTmpContactTable;
 + (NSMutableArray *) getAllEmployee;
 + (void)sendDeviceInfo:(NSString *) userId withDeviceType:(NSString *) deviceType withDeviceToken:(NSString *) deviceToken;
 + (NSMutableArray *) getAllMostContact;
++ (NSMutableArray *) getAllTmpContact;
++ (NSMutableArray *) getTmpContactByCC:(NSString *) forCC;
++ (void)deleteAllTmpContact;
 + (void)insertMostContact:(Employee *) employee;
 + (void)deleteMostContact:(Employee *) employee;
++ (void)insertTmpContact:(Employee *) employee;
++ (void)deleteTmpContact:(NSString *) employeeId withForCC:(NSString *) forCC;
++ (void)deleteTmpContactByName:(NSString *) employeeName;
 
 @end

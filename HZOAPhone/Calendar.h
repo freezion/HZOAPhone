@@ -92,5 +92,5 @@
 + (NSMutableArray *) allInvitedMeData:(NSString *) employeeId withStartDate:(NSDate *) startDate withEndDate:(NSDate *) endDate;
 + (NSMutableArray *) publicEventDate:(NSDate *) startDate withEndDate:(NSDate *) endDate;
 + (Calendar *) getSinglePublicCalendar:(NSString *) calendarId;
-
++ (NSString *) deleteCalendarById:(NSString *) calendarId;
 @end

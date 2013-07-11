@@ -37,6 +37,7 @@ int indexOfTab = 0;
 @synthesize myCalendarType;
 @synthesize refreshFlag;
 @synthesize calendarExists;
+@synthesize bar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -143,7 +144,7 @@ int indexOfTab = 0;
     /* ---------------------------------------------------------
      * Init method, passing everything the bar needs to work
      * -------------------------------------------------------*/
-    RNExpandingButtonBar *bar = [[RNExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:buttons center:center];
+    bar = [[RNExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:buttons center:center];
     //
     //    /* ---------------------------------------------------------
     //     * Settings
@@ -426,29 +427,23 @@ int indexOfTab = 0;
         [self presentModalViewController:loginViewController animated:NO];
     } else {
         [self getCurPosition];
-//        NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
-//        double ver = [version doubleValue];
-//        NSString *currVersion = [SystemConfig getVersion];
-//        if (ver < [currVersion doubleValue]) {
-//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发现新版本" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-//            [alert show];
-//        }
         if (refreshFlag == nil) {
-            
+            indexOfTab = 0;
             HUD = [[MBProgressHUD alloc] initWithView:self.view];
             [self.view addSubview:HUD];
             HUD.dimBackground = YES;
             [HUD setDelegate:self];
             [HUD setLabelText:@"数据加载..."];
-            if (indexOfTab == 0) {
-                [HUD showWhileExecuting:@selector(myEventList) onTarget:self withObject:nil animated:YES];
-            } else if (indexOfTab == 1) {
-                [HUD showWhileExecuting:@selector(mySendList) onTarget:self withObject:nil animated:YES];
-            } else if (indexOfTab == 2) {
-                [HUD showWhileExecuting:@selector(myInvationList) onTarget:self withObject:nil animated:YES];
-            } else if (indexOfTab == 3) {
-                [HUD showWhileExecuting:@selector(publicEventList) onTarget:self withObject:nil animated:YES];
-            }
+            [HUD showWhileExecuting:@selector(myEventList) onTarget:self withObject:nil animated:YES];
+//            if (indexOfTab == 0) {
+//                [HUD showWhileExecuting:@selector(myEventList) onTarget:self withObject:nil animated:YES];
+//            } else if (indexOfTab == 1) {
+//                [HUD showWhileExecuting:@selector(mySendList) onTarget:self withObject:nil animated:YES];
+//            } else if (indexOfTab == 2) {
+//                [HUD showWhileExecuting:@selector(myInvationList) onTarget:self withObject:nil animated:YES];
+//            } else if (indexOfTab == 3) {
+//                [HUD showWhileExecuting:@selector(publicEventList) onTarget:self withObject:nil animated:YES];
+//            }
         }
         
     }
@@ -540,8 +535,8 @@ int indexOfTab = 0;
 	// Get the event at the row selected and display it's title
     Calendar *calendarObj = [self.eventsList objectAtIndex:indexPath.row];
     cell.eventNameLabel.text = calendarObj.Title;
-    cell.startTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"MM月dd日 HH:mm"];
-    cell.endTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"MM月dd日 HH:mm"];
+    cell.startTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"MM月dd日 cccc HH:mm"];
+    cell.endTimeLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"MM月dd日 cccc HH:mm"];
 	return cell;
 }
 
@@ -556,13 +551,13 @@ int indexOfTab = 0;
         CalendarDetailViewController *calendarDetailViewController = [storyborad instantiateViewControllerWithIdentifier:@"CalendarDetailViewController"];
         calendarDetailViewController.calenderId = calendarObj.ID;
         calendarDetailViewController.tabIndex = indexOfTab;
-        refreshFlag = @"NO";
         [self.navigationController pushViewController:calendarDetailViewController animated:YES];
     } else {
         PublicCalendarViewController *publicCalendarViewController = [storyborad instantiateViewControllerWithIdentifier:@"PublicCalendarViewController"];
         publicCalendarViewController.calenderId = calendarObj.ID;
         [self.navigationController pushViewController:publicCalendarViewController animated:YES];
     }
+    refreshFlag = @"NO";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

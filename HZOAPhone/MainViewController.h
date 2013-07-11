@@ -38,6 +38,7 @@
     NSString *model;
     NSString *location;
     int calendarExists;
+    RNExpandingButtonBar *bar;
 }
 
 @property (retain, nonatomic) IBOutlet UITableView *tableViewCustom;
@@ -48,6 +49,7 @@
 @property (nonatomic, retain) EKEventStore *eventStore;
 @property (nonatomic, retain) EKCalendar *defaultCalendar;
 @property (nonatomic, retain) NSString *myCalendarType;
+@property (nonatomic, retain) RNExpandingButtonBar *bar;
 @property (nonatomic) int calendarExists;
 
 @end

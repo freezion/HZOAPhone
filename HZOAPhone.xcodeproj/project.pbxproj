@@ -248,6 +248,13 @@
 		33E7258016353D9A0038A6A1 /* EmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E7257F16353D9A0038A6A1 /* EmailViewController.m */; };
 		33E72586163542110038A6A1 /* writeSettings.png in Resources */ = {isa = PBXBuildFile; fileRef = 33E72585163542100038A6A1 /* writeSettings.png */; };
 		33E7259116354FEB0038A6A1 /* CalendarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E7259016354FEA0038A6A1 /* CalendarDetailViewController.m */; };
+		33FB2681178D020E002FFEDF /* RedBigBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33FB267C178D01F7002FFEDF /* RedBigBtn@2x.png */; };
+		33FB2682178D020E002FFEDF /* RedBigBtnHighlight.png in Resources */ = {isa = PBXBuildFile; fileRef = 33FB267D178D01FC002FFEDF /* RedBigBtnHighlight.png */; };
+		33FB2683178D020E002FFEDF /* RedBigBtnHighlight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33FB267E178D0201002FFEDF /* RedBigBtnHighlight@2x.png */; };
+		33FB2684178D020E002FFEDF /* RedBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33FB267F178D0207002FFEDF /* RedBtn@2x.png */; };
+		33FB2685178D020E002FFEDF /* RedBigBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 33FB2680178D020A002FFEDF /* RedBigBtn.png */; };
+		33FB268A178D4299002FFEDF /* Selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 33FB2688178D4289002FFEDF /* Selected.png */; };
+		33FB268B178D4299002FFEDF /* Unselected.png in Resources */ = {isa = PBXBuildFile; fileRef = 33FB2689178D4294002FFEDF /* Unselected.png */; };
 		3DC3B3CF1679962A00C4C9E9 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DC3B3CE1679962A00C4C9E9 /* logout.png */; };
 /* End PBXBuildFile section */
 
@@ -591,6 +598,13 @@
 		33E72585163542100038A6A1 /* writeSettings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = writeSettings.png; sourceTree = "<group>"; };
 		33E7258F16354FE80038A6A1 /* CalendarDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarDetailViewController.h; sourceTree = "<group>"; };
 		33E7259016354FEA0038A6A1 /* CalendarDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarDetailViewController.m; sourceTree = "<group>"; };
+		33FB267C178D01F7002FFEDF /* RedBigBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RedBigBtn@2x.png"; sourceTree = "<group>"; };
+		33FB267D178D01FC002FFEDF /* RedBigBtnHighlight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedBigBtnHighlight.png; sourceTree = "<group>"; };
+		33FB267E178D0201002FFEDF /* RedBigBtnHighlight@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RedBigBtnHighlight@2x.png"; sourceTree = "<group>"; };
+		33FB267F178D0207002FFEDF /* RedBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RedBtn@2x.png"; sourceTree = "<group>"; };
+		33FB2680178D020A002FFEDF /* RedBigBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RedBigBtn.png; sourceTree = "<group>"; };
+		33FB2688178D4289002FFEDF /* Selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Selected.png; sourceTree = "<group>"; };
+		33FB2689178D4294002FFEDF /* Unselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unselected.png; sourceTree = "<group>"; };
 		3DC3B3CE1679962A00C4C9E9 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1112,6 +1126,13 @@
 		33D06B711627F3C600D8229A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				33FB2688178D4289002FFEDF /* Selected.png */,
+				33FB2689178D4294002FFEDF /* Unselected.png */,
+				33FB267C178D01F7002FFEDF /* RedBigBtn@2x.png */,
+				33FB267D178D01FC002FFEDF /* RedBigBtnHighlight.png */,
+				33FB267E178D0201002FFEDF /* RedBigBtnHighlight@2x.png */,
+				33FB267F178D0207002FFEDF /* RedBtn@2x.png */,
+				33FB2680178D020A002FFEDF /* RedBigBtn.png */,
 				3305CDFD17842C67005E266B /* searchInput.png */,
 				3305CDFE17842C67005E266B /* searchInput@2x.png */,
 				33C452FC162EA25800349E1E /* tabbarImages */,
@@ -1387,6 +1408,13 @@
 				3305CDD91784030C005E266B /* Default-568h@2x.png in Resources */,
 				3305CDFF17842C67005E266B /* searchInput.png in Resources */,
 				3305CE0017842C67005E266B /* searchInput@2x.png in Resources */,
+				33FB2681178D020E002FFEDF /* RedBigBtn@2x.png in Resources */,
+				33FB2682178D020E002FFEDF /* RedBigBtnHighlight.png in Resources */,
+				33FB2683178D020E002FFEDF /* RedBigBtnHighlight@2x.png in Resources */,
+				33FB2684178D020E002FFEDF /* RedBtn@2x.png in Resources */,
+				33FB2685178D020E002FFEDF /* RedBigBtn.png in Resources */,
+				33FB268A178D4299002FFEDF /* Selected.png in Resources */,
+				33FB268B178D4299002FFEDF /* Unselected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,6 +29,7 @@
 #import "JSTokenField.h"
 #import "JSTokenButton.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Employee.h"
 
 NSString *const JSTokenFieldFrameDidChangeNotification = @"JSTokenFieldFrameDidChangeNotification";
 NSString *const JSTokenFieldNewFrameKey = @"JSTokenFieldNewFrameKey";
@@ -156,6 +157,11 @@ NSString *const JSDeletedTokenKey = @"JSDeletedTokenKey";
     for (JSTokenButton *token in [_tokens reverseObjectEnumerator]) {
         if (test(token)) {
             tokenToRemove = token;
+            if (_textField.tag == 0) {
+                [Employee deleteTmpContact:token.representedObject withForCC:@"0"];
+            } else {
+                [Employee deleteTmpContact:token.representedObject withForCC:@"1"];
+            }
             break;
         }
     }
@@ -164,6 +170,7 @@ NSString *const JSDeletedTokenKey = @"JSDeletedTokenKey";
         if (tokenToRemove.isFirstResponder) {
             [_textField becomeFirstResponder];
         }
+        
         [tokenToRemove removeFromSuperview];
         [[tokenToRemove retain] autorelease]; // removing it from the array will dealloc the object, but we want to keep it around for the delegate method below
         

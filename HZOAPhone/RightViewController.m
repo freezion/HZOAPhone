@@ -48,9 +48,8 @@
     userName.text=[usernamepasswordKVPairs objectForKey:KEY_USERNAME];
     
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
-    double ver = [version doubleValue];
     NSString *currVersion = [SystemConfig getVersion];
-    if (ver < [currVersion doubleValue]) {
+    if (![version isEqualToString:currVersion]) {
         self.flagImage.image = [UIImage imageNamed:@"label_new_red.png"];
     } else {
         self.flagImage.image = [UIImage imageNamed:@""];
@@ -86,6 +85,7 @@
 }
 
 - (IBAction)showNewEmail:(id) sender {
+    [Employee deleteAllTmpContact];
     DDMenuController *menuController = (DDMenuController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
     UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"HZOAStoryboard" bundle:nil];
     NewEmailViewController *newEmailViewController = [storyborad instantiateViewControllerWithIdentifier:@"NewEmailViewController"];

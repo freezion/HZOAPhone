@@ -11,11 +11,13 @@
 #import "DDMenuController.h"
 #import "Mail.h"
 #import "MBProgressHUD.h"
+#import "Employee.h"
 
 @class TPKeyboardAvoidingScrollView;
 
 @protocol NewEmailDelegate <NSObject>
 - (void) showContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId;
+- (void) deleteContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId;
 @end
 
 @interface NewEmailViewController : UIViewController<JSTokenFieldDelegate, UIActionSheetDelegate, NewEmailDelegate, UIAlertViewDelegate, MBProgressHUDDelegate> {
@@ -28,8 +30,6 @@
     TPKeyboardAvoidingScrollView *scrollView;
     UIToolbar *keyboardToolbar;
     MBProgressHUD *HUD;
-    NSMutableDictionary *listContactId;
-    NSMutableDictionary *listCCContactId;
     UITextField *subTitle;
     Mail *mail;
     NSMutableDictionary *usernamepasswordKVPairs;
@@ -43,8 +43,6 @@
 @property (nonatomic, retain) IBOutlet UITextView *contextTextView;
 @property (nonatomic, retain) UIToolbar *keyboardToolbar;
 @property (nonatomic, retain) IBOutlet UITextField *subTitle;
-@property (nonatomic, retain) NSMutableDictionary *listContactId;
-@property (nonatomic, retain) NSMutableDictionary *listCCContactId;
 @property (nonatomic, retain) UIButton *toButton;
 @property (nonatomic, retain) UIButton *ccButton;
 @property (nonatomic, retain) Mail *mail;

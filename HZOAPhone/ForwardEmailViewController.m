@@ -23,8 +23,6 @@
 @synthesize subTitle;
 @synthesize toButton;
 @synthesize ccButton;
-@synthesize listCCContactId;
-@synthesize listContactId;
 @synthesize scrollView;
 
 
@@ -53,8 +51,6 @@
     self.title = [@"Fw:" stringByAppendingString:mail.title];
     [self initForward];
     usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
-    self.listContactId = [NSMutableDictionary dictionary];
-    self.listCCContactId = [NSMutableDictionary dictionary];
     if (mail) {
         subTitle.text = [@"Fw:" stringByAppendingString: mail.title];
         contextTextView.text = [NSString stringWithFormat:@"\n\n在 %@, %@ 转发邮件: \n %@", mail.date, mail.senderName, mail.context];
@@ -225,7 +221,7 @@
 
 - (BOOL) checkEmailField {
     BOOL flag = YES;
-    int count = [self.listContactId count];
+    int count = [[Employee getTmpContactByCC:@"0"] count];
     NSString *subTitleValue = [subTitle.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSString *messageViewValue = [contextTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     
@@ -248,34 +244,32 @@
 
 - (void)doSend {
     if ([self checkEmailField]) {
-        int count = [self.listContactId count];
-        NSLog(@"数量: %d", count);
-        // go webservice here
-        NSEnumerator *enumeratorValue = [self.listContactId objectEnumerator];
+        NSArray *toList = [Employee getTmpContactByCC:@"0"];
         NSString *receiveList = @"";
         int i = 0;
-        for (NSString *contactId in enumeratorValue) {
-            if (i == (count - 1)) {
-                receiveList = [receiveList stringByAppendingFormat:@"%@", contactId];
-            } else {
-                receiveList = [receiveList stringByAppendingFormat:@"%@,", contactId];
+        if (toList) {
+            for (Employee *employee in toList) {
+                if (i == ([toList count] - 1)) {
+                    receiveList = [receiveList stringByAppendingFormat:@"%@", employee._id];
+                } else {
+                    receiveList = [receiveList stringByAppendingFormat:@"%@,", employee._id];
+                }
+                i ++;
             }
-            i ++;
         }
         
-        int countCC = [self.listCCContactId count];
-        NSLog(@"数量: %d", countCC);
-        // go webservice here
-        enumeratorValue = [self.listCCContactId objectEnumerator];
-        NSString *CCList = @"";
+        NSArray *ccList = [Employee getTmpContactByCC:@"1"];
+        NSString *ccValue = @"";
         i = 0;
-        for (NSString *contactId in enumeratorValue) {
-            if (i == (countCC - 1)) {
-                CCList = [CCList stringByAppendingFormat:@"%@", contactId];
-            } else {
-                CCList = [CCList stringByAppendingFormat:@"%@,", contactId];
+        if (ccList) {
+            for (Employee *employee in ccList) {
+                if (i == ([ccList count] - 1)) {
+                    ccValue = [ccValue stringByAppendingFormat:@"%@", employee._id];
+                } else {
+                    ccValue = [ccValue stringByAppendingFormat:@"%@,", employee._id];
+                }
+                i ++;
             }
-            i ++;
         }
         
         mail = [[Mail alloc] init];
@@ -286,7 +280,7 @@
         mail.sender = [usernamepasswordKVPairs objectForKey:KEY_USERID];
         mail.senderName = [usernamepasswordKVPairs objectForKey:KEY_USERNAME];
         mail.reciver = receiveList;
-        mail.ccList = CCList;
+        mail.ccList = ccValue;
         mail.reciverName = @"";
         mail.fileId = @"";
         mail.fileName = @"";
@@ -308,40 +302,38 @@
 }
 
 - (void)doSaveTmp {
-    int count = [self.listContactId count];
-    NSLog(@"数量: %d", count);
-    // go webservice here
-    NSEnumerator *enumeratorValue = [self.listContactId objectEnumerator];
+    NSArray *toList = [Employee getTmpContactByCC:@"0"];
     NSString *receiveList = @"";
     int i = 0;
-    for (NSString *contactId in enumeratorValue) {
-        if (i == (count - 1)) {
-            receiveList = [receiveList stringByAppendingFormat:@"%@", contactId];
-        } else {
-            receiveList = [receiveList stringByAppendingFormat:@"%@,", contactId];
+    if (toList) {
+        for (Employee *employee in toList) {
+            if (i == ([toList count] - 1)) {
+                receiveList = [receiveList stringByAppendingFormat:@"%@", employee._id];
+            } else {
+                receiveList = [receiveList stringByAppendingFormat:@"%@,", employee._id];
+            }
+            i ++;
         }
-        i ++;
     }
     
-    int countCC = [self.listCCContactId count];
+    NSArray *ccList = [Employee getTmpContactByCC:@"1"];
+    NSString *ccValue = @"";
+    i = 0;
+    if (ccList) {
+        for (Employee *employee in ccList) {
+            if (i == ([ccList count] - 1)) {
+                ccValue = [ccValue stringByAppendingFormat:@"%@", employee._id];
+            } else {
+                ccValue = [ccValue stringByAppendingFormat:@"%@,", employee._id];
+            }
+            i ++;
+        }
+    }
     
     if ([subTitle.text isEqualToString:@""] || subTitle.text == nil) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"保存草稿之前请输入邮件标题。" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         return;
-    }
-    NSLog(@"数量: %d", countCC);
-    // go webservice here
-    enumeratorValue = [self.listCCContactId objectEnumerator];
-    NSString *CCList = @"";
-    i = 0;
-    for (NSString *contactId in enumeratorValue) {
-        if (i == (countCC - 1)) {
-            CCList = [CCList stringByAppendingFormat:@"%@", contactId];
-        } else {
-            CCList = [CCList stringByAppendingFormat:@"%@,", contactId];
-        }
-        i ++;
     }
     
     mail = [[Mail alloc] init];
@@ -352,7 +344,7 @@
     mail.sender = [usernamepasswordKVPairs objectForKey:KEY_USERID];
     mail.senderName = [usernamepasswordKVPairs objectForKey:KEY_USERNAME];
     mail.reciver = receiveList;
-    mail.ccList = CCList;
+    mail.ccList = ccValue;
     mail.reciverName = @"";
     mail.fileId = @"";
     mail.fileName = @"";
@@ -412,14 +404,31 @@
     }
 }
 
-- (void) showContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId {
+- (void) deleteContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId {
     if (buttonId == toButton) {
-        [toField addTokenWithTitle:contactName representedObject:contactId];
-        [self.listContactId setObject:contactId forKey:[NSString stringWithFormat:@"%d", toField.tokens.count]];
+        [toField removeTokenWithRepresentedObject:contactId];
     }
     else {
+        [ccField removeTokenWithRepresentedObject:contactId];
+    }
+}
+
+- (void) showContact:(NSString *) contactId theName:(NSString *) contactName withButton:(UIButton *)buttonId {
+    if (buttonId == toButton) {
+        Employee *employee = [[Employee alloc] init];
+        employee._id = contactId;
+        employee._name = contactName;
+        employee._forCC = @"0";
+        [Employee insertTmpContact:employee];
+        [toField addTokenWithTitle:contactName representedObject:contactId];
+    }
+    else {
+        Employee *employee = [[Employee alloc] init];
+        employee._id = contactId;
+        employee._name = contactName;
+        employee._forCC = @"1";
+        [Employee insertTmpContact:employee];
         [ccField addTokenWithTitle:contactName representedObject:contactId];
-        [self.listCCContactId setObject:contactId forKey:[NSString stringWithFormat:@"%d", ccField.tokens.count]];
     }
 }
 

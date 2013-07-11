@@ -104,6 +104,7 @@
 }
 
 - (IBAction)showEmail:(id) sender {
+    [Employee deleteAllTmpContact];
     AppDelegate *d = [[UIApplication sharedApplication] delegate];
     d.emailMessage = @"0";
     DDMenuController *menuController = (DDMenuController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;

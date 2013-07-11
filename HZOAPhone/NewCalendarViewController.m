@@ -46,6 +46,7 @@
 @synthesize listContactCustom;
 @synthesize customerCell;
 @synthesize switchPrivate;
+@synthesize deleteButton;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -92,6 +93,34 @@
     }
     
     if (editFlag) {
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage *buttonImage = [[UIImage imageNamed:@"cancel.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonPressedImage = [[UIImage imageNamed:@"cancel2.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
+        CGRect buttonFrame = [button frame];
+        buttonFrame.size.width = buttonImage.size.width;
+        buttonFrame.size.height = buttonImage.size.height;
+        [button setFrame:buttonFrame];
+        [button addTarget:self action:@selector(saveCancel:) forControlEvents:UIControlEventTouchUpInside];
+        UIBarButtonItem *buttonBar = [[UIBarButtonItem alloc] initWithCustomView:button];
+        self.navigationItem.leftBarButtonItem = buttonBar;
+        
+        button = [UIButton buttonWithType:UIButtonTypeCustom];
+        buttonImage = [[UIImage imageNamed:@"send_paper.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        buttonPressedImage = [[UIImage imageNamed:@"send2.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
+        [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
+        buttonFrame = [button frame];
+        buttonFrame.size.width = buttonImage.size.width;
+        buttonFrame.size.height = buttonImage.size.height;
+        [button setFrame:buttonFrame];
+        [button addTarget:self action:@selector(doneClicked) forControlEvents:UIControlEventTouchUpInside];
+        buttonBar = [[UIBarButtonItem alloc] initWithCustomView:button];
+        self.navigationItem.rightBarButtonItem = buttonBar;
+        
+        
         txtTitle.text = calendarObj.Title;
         txtLocation.text = calendarObj.Location;
         startLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy年M月d日 HH:mm"];
@@ -166,6 +195,11 @@
         } else {
             stateAllDay = YES;
         }
+        self.deleteCell.backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
+        [deleteButton setBackgroundImage:[[UIImage imageNamed:@"RedBigBtn"] stretchableImageWithLeftCapWidth:10 topCapHeight:0]
+                              forState:UIControlStateNormal];
+        [deleteButton setBackgroundImage:[[UIImage imageNamed:@"RedBtnHighlight"] stretchableImageWithLeftCapWidth:10 topCapHeight:0]
+                              forState:UIControlStateHighlighted];
     } else {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
         [dateFormatter setDateFormat:@"yyyy年M月d日 H:00"];
@@ -179,18 +213,17 @@
         NSString *twoHourAfter = [dateFormatter stringFromDate:endDateT];
         endLabel.text = twoHourAfter;
         selectIndexType = 0;
-    }
-    
-    
-    self.keyboardToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 84, 320, 40)];
-    keyboardToolbar.tag = 10;
-    keyboardToolbar.barStyle = UIBarStyleBlackTranslucent;
-    UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-    
-    UIBarButtonItem *cancelButton = [self setupLeftBar];
-    UIBarButtonItem *doneButton = [self setupRightBar];
-    [keyboardToolbar setItems:[NSArray arrayWithObjects:cancelButton, spacer, doneButton, nil]];
-    [self.view addSubview:keyboardToolbar];
+        
+        self.keyboardToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height - 84, 320, 40)];
+        keyboardToolbar.tag = 10;
+        keyboardToolbar.barStyle = UIBarStyleBlackTranslucent;
+        UIBarButtonItem *spacer = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+        
+        UIBarButtonItem *cancelButton = [self setupLeftBar];
+        UIBarButtonItem *doneButton = [self setupRightBar];
+        [keyboardToolbar setItems:[NSArray arrayWithObjects:cancelButton, spacer, doneButton, nil]];
+        [self.view addSubview:keyboardToolbar];
+    }  
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
@@ -413,7 +446,18 @@
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (alertView.tag == 9) {
+        if (buttonIndex == 1) {
+            [Calendar deleteCalendarById:calendarObj.ID];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"删除成功" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+            alert.tag = 10;
+            [alert show];
+            [self.navigationController popToRootViewControllerAnimated:YES];
+        }
+    } else {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
@@ -513,7 +557,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 8;
+    if (editFlag) {
+        return 9;
+    } else {
+        return 8;
+    }
 }
 
 #pragma mark - CalenderChooseDelegate
@@ -627,6 +675,12 @@
         contractEndLabel.text = endDate;
     }
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)deleteCalendarEvent:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认删除该日程?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    alert.tag = 9;
+    [alert show];
 }
 
 #pragma mark - EventTypeViewDelegate

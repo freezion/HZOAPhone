@@ -10,7 +10,7 @@
 #import <sqlite3.h>
 
 @class DDMenuController;
-@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+@interface AppDelegate : UIResponder <UIApplicationDelegate, UIAlertViewDelegate> {
     NSString *deviceTokenNum;
     NSString *deviceType;
     NSString *calendarMessage;

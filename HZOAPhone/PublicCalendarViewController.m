@@ -43,8 +43,8 @@
     calendarObj = [Calendar getSinglePublicCalendar:calenderId];
     
     self.eventTitleLabel.text = calendarObj.Title;
-    self.startDateLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy年M月d日 HH:mm"];
-    self.endDateLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy年M月d日 HH:mm"];
+    self.startDateLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy年M月d日 cccc HH:mm"];
+    self.endDateLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy年M月d日 cccc HH:mm"];
     self.contextTextView.text = calendarObj.Note;
     self.creatorCell.detailTextLabel.text = calendarObj.senderName;
 }

@@ -27,6 +27,7 @@
 @synthesize delegateMostContact;
 @synthesize status;
 @synthesize delegateSwitchView;
+@synthesize checkedIndexPath;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -54,6 +55,7 @@
 
 - (void) initChooseEmployee {    
     self.dictionary = [[NSMutableDictionary alloc] init];
+    //selectedList = [Employee getAllTmpContact];
 	//分配给list
 	self.list = [NSArray arrayWithArray:[Employee getAllEmployee]];
     for (int i = 0; i < [list count]; i ++) {
@@ -115,13 +117,13 @@
 {
     GCRetractableSectionController *sectionController = [self.retractableControllers objectAtIndex:indexPath.section];
     
-    return [sectionController cellForRow:indexPath.row];
+    return [sectionController cellForRow:indexPath.row withButtonId:buttonId];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     GCRetractableSectionController *sectionController = [self.retractableControllers objectAtIndex:indexPath.section];
-    return [sectionController didSelectCellAtRow:indexPath.row withButtonId:buttonId];
+    return [sectionController didSelectCellAtRow:indexPath.row withButtonId:buttonId withIndexPath:indexPath];
 }
 
 - (void)doCancel {

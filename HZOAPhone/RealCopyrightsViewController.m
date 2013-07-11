@@ -33,11 +33,14 @@
     self.title = @"版权信息";
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
     versionLabel.text = version;
-    double ver = [version doubleValue];
     NSString *currVersion = [SystemConfig getVersion];
-    if (ver < [currVersion doubleValue]) {
-        [urlButton setTitle:@"点击下载新版本" forState:UIControlStateNormal];
-    } else {
+    if (![version isEqualToString:currVersion]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"App的版本过低请下载新版本."
+                                                       delegate:self
+                                              cancelButtonTitle:@"前往下载"
+                                              otherButtonTitles:nil, nil];
+        [alert performSelector:@selector(show) withObject:nil afterDelay:0.0];
     }
 }
 

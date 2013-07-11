@@ -22,6 +22,7 @@
 @synthesize _sex;
 @synthesize _partyId;
 @synthesize _partyName;
+@synthesize _forCC;
 @synthesize locationManager;
 
 + (Employee *)loadEmployee:(NSData *) responseData
@@ -352,6 +353,169 @@
     }
 }
 
++ (void)createTmpContactTable {
+    NSString *databasePath = [NSUtil getDBPath];
+    sqlite3 *hzoaDB;
+    const char *dbpath = [databasePath UTF8String];
+    
+    if (sqlite3_open(dbpath, &hzoaDB)==SQLITE_OK)
+    {
+        char *errMsg;
+        const char *sql_stmt = "CREATE TABLE IF NOT EXISTS TMPEMPLOYEE(ID VARCHAR(20) PRIMARY KEY, NAME TEXT, FORCC VARCHAR(5));";
+        if (sqlite3_exec(hzoaDB, sql_stmt, NULL, NULL, &errMsg)!=SQLITE_OK) {
+            NSLog(@"create failed!\n");
+        }
+    }
+    else
+    {
+        NSLog(@"创建/打开数据库失败");
+    }
+}
+
++ (void)insertTmpContact:(Employee *) employee {
+    NSString *databasePath = [NSUtil getDBPath];
+    sqlite3 *hzoaDB;
+    sqlite3_stmt *statement;
+    const char *dbpath = [databasePath UTF8String];
+    
+    if (sqlite3_open(dbpath, &hzoaDB)==SQLITE_OK) {
+        NSString *employeeId = employee._id;
+        NSString *name = employee._name;
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO TMPEMPLOYEE VALUES(\"%@\",\"%@\",\"%@\")", employeeId, name, employee._forCC];
+        const char *insert_stmt = [insertSQL UTF8String];
+        sqlite3_prepare_v2(hzoaDB, insert_stmt, -1, &statement, NULL);
+        if (sqlite3_step(statement) == SQLITE_DONE) {
+            
+        }
+        sqlite3_finalize(statement);
+        sqlite3_close(hzoaDB);
+    }
+}
+
++ (void)deleteTmpContactByName:(NSString *) employeeName {
+    NSString *databasePath = [NSUtil getDBPath];
+    sqlite3 *hzoaDB;
+    const char *dbpath = [databasePath UTF8String];
+    sqlite3_stmt *stmt = nil;
+    if (sqlite3_open(dbpath, &hzoaDB) == SQLITE_OK)
+    {
+        NSString *deleteSQL = [NSString stringWithFormat:@"DELETE FROM TMPEMPLOYEE WHERE NAME = \"%@\";", employeeName];
+        const char *query = [deleteSQL UTF8String];
+        if (sqlite3_prepare_v2(hzoaDB, query, -1, &stmt, NULL) != SQLITE_OK) {
+            NSLog(@"delete data failed!");
+        }
+        if (sqlite3_step(stmt) != SQLITE_DONE) {
+            NSAssert1(0, @"Error while deleting. '%s'", sqlite3_errmsg(hzoaDB));
+        }
+    } else {
+        NSLog(@"创建/打开数据库失败");
+    }
+}
+
++ (void)deleteTmpContact:(NSString *) employeeId withForCC:(NSString *) forCC; {
+    NSString *databasePath = [NSUtil getDBPath];
+    sqlite3 *hzoaDB;
+    const char *dbpath = [databasePath UTF8String];
+    sqlite3_stmt *stmt = nil;
+    if (sqlite3_open(dbpath, &hzoaDB) == SQLITE_OK)
+    {
+        NSString *deleteSQL = [NSString stringWithFormat:@"DELETE FROM TMPEMPLOYEE WHERE ID = \"%@\" AND FORCC = \"%@\";", employeeId, forCC];
+        const char *query = [deleteSQL UTF8String];
+        if (sqlite3_prepare_v2(hzoaDB, query, -1, &stmt, NULL) != SQLITE_OK) {
+            NSLog(@"delete data failed!");
+        }
+        if (sqlite3_step(stmt) != SQLITE_DONE) {
+            NSAssert1(0, @"Error while deleting. '%s'", sqlite3_errmsg(hzoaDB));
+        }
+    } else {
+        NSLog(@"创建/打开数据库失败");
+    }
+}
++ (NSMutableArray *) getTmpContactByCC:(NSString *) forCC {
+    NSMutableArray *employeeList = [[NSMutableArray alloc] initWithCapacity:0];
+    NSString *databasePath = [NSUtil getDBPath];
+    sqlite3 *hzoaDB;
+    const char *dbpath = [databasePath UTF8String];
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_open(dbpath, &hzoaDB) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat:@"SELECT * FROM TMPEMPLOYEE WHERE FORCC = \"%@\";", forCC];
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(hzoaDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                Employee *employee = [[Employee alloc] init];
+                // id
+                NSString *idField = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
+                employee._id = idField;
+                // name
+                NSString *nameField = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
+                employee._name = nameField;
+                [employeeList addObject:employee];
+            }
+            sqlite3_finalize(statement);
+        }
+        
+        sqlite3_close(hzoaDB);
+    }
+    
+    return employeeList;
+}
+
++ (NSMutableArray *) getAllTmpContact {
+    NSMutableArray *employeeList = [[NSMutableArray alloc] initWithCapacity:0];
+    NSString *databasePath = [NSUtil getDBPath];
+    sqlite3 *hzoaDB;
+    const char *dbpath = [databasePath UTF8String];
+    sqlite3_stmt *statement;
+    
+    if (sqlite3_open(dbpath, &hzoaDB) == SQLITE_OK)
+    {
+        NSString *querySQL = @"SELECT * FROM TMPEMPLOYEE;";
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(hzoaDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+                Employee *employee = [[Employee alloc] init];
+                // id
+                NSString *idField = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
+                employee._id = idField;
+                // name
+                NSString *nameField = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 1)];
+                employee._name = nameField;
+                [employeeList addObject:employee];
+            }
+            sqlite3_finalize(statement);
+        }
+        
+        sqlite3_close(hzoaDB);
+    }
+    
+    return employeeList;
+}
+
++ (void) deleteAllTmpContact {
+    NSString *databasePath = [NSUtil getDBPath];
+    sqlite3 *hzoaDB;
+    const char *dbpath = [databasePath UTF8String];
+    sqlite3_stmt *stmt = nil;
+    if (sqlite3_open(dbpath, &hzoaDB) == SQLITE_OK)
+    {
+        const char *query = "DELETE FROM TMPEMPLOYEE;";
+        if (sqlite3_prepare_v2(hzoaDB, query, -1, &stmt, NULL) != SQLITE_OK) {
+            NSLog(@"delete data failed!");
+        }
+        if (sqlite3_step(stmt) != SQLITE_DONE) {
+            NSAssert1(0, @"Error while deleting. '%s'", sqlite3_errmsg(hzoaDB));
+        }
+    } else {
+        NSLog(@"创建/打开数据库失败");
+    }
+
+}
 
 + (void)createMostContactTable {
     NSString *databasePath = [NSUtil getDBPath];

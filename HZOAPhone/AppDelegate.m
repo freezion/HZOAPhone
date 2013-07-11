@@ -97,6 +97,7 @@
     {
         [Employee createEmployeeTable];
         [Employee createMostContactTable];
+        [Employee createTmpContactTable];
         [Notice createNoticeTable];
         [Mail createEmailTable];
         [MyFolder createMyFolderTable];
@@ -104,6 +105,18 @@
     }
     
     [Employee synchronizeEmployee];
+    
+    
+    NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
+    NSString *currVersion = [SystemConfig getVersion];
+    if (![version isEqualToString:currVersion]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+                                                        message:@"App的版本过低请下载新版本."
+                                                       delegate:self
+                                              cancelButtonTitle:@"前往下载"
+                                              otherButtonTitles:nil, nil];
+        [alert performSelector:@selector(show) withObject:nil afterDelay:0.0];
+    }
     
     UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"HZOAStoryboard" bundle:nil];
     MainViewController *mainViewController = [storyborad instantiateViewControllerWithIdentifier:@"MainViewController"];
@@ -187,6 +200,15 @@
 	}
     
     return YES;
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self goAppStore];
+}
+
+-(void) goAppStore {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-apps://itunes.apple.com/cn/app/hua-zhong-zi-xun/id575478439?mt=8"]];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

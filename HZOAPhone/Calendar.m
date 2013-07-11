@@ -1155,4 +1155,25 @@
     }
 }
 
++ (NSString *) deleteCalendarById:(NSString *) calendarId {
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Calendar.asmx/deleteCalendar"];
+    NSURL *url = [NSURL URLWithString:webserviceUrl];
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request addRequestHeader:@"Content-Type" value:@"text/xml; charset=utf-8"];
+    [request setPostValue:calendarId forKey:@"id"];
+    [request buildPostBody];
+    [request setDelegate:self];
+    [request startSynchronous];
+    NSString *retStr = @"";
+    NSError *error;
+    if(request.responseStatusCode == 200)
+    {
+        GDataXMLDocument *doc = [[GDataXMLDocument alloc] initWithXMLString:[request responseString] options:0 error:&error];
+        GDataXMLElement *root = [doc rootElement];
+        retStr = [root stringValue];
+    }
+    return retStr;
+}
+
 @end

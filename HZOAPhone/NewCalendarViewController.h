@@ -70,6 +70,8 @@
 @property (nonatomic, retain) IBOutlet UILabel *contractStartLabel;
 @property (nonatomic, retain) IBOutlet UILabel *contractEndLabel;
 @property (nonatomic, retain) IBOutlet UITableViewCell *customerCell;
+@property (nonatomic, retain) IBOutlet UIButton *deleteButton;
+@property (nonatomic, retain) IBOutlet UITableViewCell *deleteCell;
 @property (nonatomic) BOOL stateAllDay;
 @property (nonatomic) int selectIndexSave;
 @property (nonatomic, retain) NSMutableArray *tokenList;
@@ -87,5 +89,6 @@
 @property (nonatomic, retain) NSMutableDictionary *listContactCustom;
 @property (nonatomic) BOOL editFlag;
 
+- (IBAction)deleteCalendarEvent:(id)sender;
 
 @end

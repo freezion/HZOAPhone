@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MailCell : UITableViewCell
+@interface MailCell : UITableViewCell {
+	BOOL			m_checked;
+}
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
 @property (nonatomic, strong) IBOutlet UILabel *detailLabel;
@@ -17,5 +19,7 @@
 @property (nonatomic, strong) IBOutlet UILabel *senderLabel;
 @property (nonatomic, strong) IBOutlet UILabel *importLabel;
 @property (nonatomic, strong) IBOutlet UIImageView *readImageView;
+
+- (void) setChecked:(BOOL)checked;
 
 @end

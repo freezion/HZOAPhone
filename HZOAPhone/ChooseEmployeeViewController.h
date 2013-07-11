@@ -22,6 +22,7 @@
     NSMutableArray* retractableControllers;
     GCArraySectionController *arrayController;
     int status;
+    NSIndexPath *checkedIndexPath;
 }
 
 @property (nonatomic) int status;
@@ -30,6 +31,7 @@
 @property (nonatomic, retain) NSMutableDictionary *dictionary;
 @property (nonatomic, retain) NSArray *list;
 @property (nonatomic, retain) UIButton *buttonId;
+@property (nonatomic, retain) NSIndexPath *checkedIndexPath;
 @property (nonatomic, retain) id<InvitEmployeeDelegate> delegateInvitEmployee;
 @property (nonatomic, retain) id<NewEmailDelegate> delegateEmail;
 @property (nonatomic, retain) id<NewNoticeDelegate> delegateNotice;
