@@ -432,8 +432,6 @@
         alert.tag = 0;
         [alert show];
     }
-    
-    editFlag = FALSE;
     [self.tableViewCustom performSelector:@selector(reloadData) withObject:nil afterDelay:0.3];
 }
 
@@ -445,8 +443,10 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
-        
+        editFlag = FALSE;
+        [self refreshTableView];
     } else {
+        editFlag = FALSE;
         if (alertView.tag == 0) {
             NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
             if (indexOfTab == 3) {
