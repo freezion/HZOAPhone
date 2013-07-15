@@ -31,6 +31,7 @@
 @property (nonatomic, retain) IBOutlet UILabel *lblSendType;
 @property (nonatomic, retain) IBOutlet UITextView *txtContext;
 @property (nonatomic, retain) IBOutlet UIButton *attchmentButton;
+
 @property (nonatomic, retain) NSString *fileId;
 
 - (IBAction)tappedAttachMentButton:(id)sender;

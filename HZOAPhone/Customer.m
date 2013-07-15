@@ -82,9 +82,15 @@
     [request setPostValue:customer.Location forKey:@"Location"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startAsynchronous];
-    
-    
+    [request startSynchronous];
+}
+
++ (void)requestFailed:(ASIHTTPRequest *)request
+{
+    [UserKeychain delete:KEY_LOGINID_PASSWORD];
+    NSError *error = [request error];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[@"没有网络连接. error : " stringByAppendingString:error.localizedDescription] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end

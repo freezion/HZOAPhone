@@ -37,6 +37,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([UIScreen mainScreen].bounds.size.height == 480.0) {
+        [self.txtContext setFrame:CGRectMake(6, 0, 288, 288)];
+    } else {
+        [self.txtContext setFrame:CGRectMake(6, 0, 288, 378)];
+    }
     self.title = @"公告内容";
     [self initNotice];
 }
@@ -100,6 +105,21 @@
         webViewController.modalPresentationStyle = UIModalPresentationPageSheet;
         webViewController.availableActions = SVWebViewControllerAvailableActionsOpenInSafari | SVWebViewControllerAvailableActionsCopyLink | SVWebViewControllerAvailableActionsMailLink;
         [self presentModalViewController:webViewController animated:YES];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 64;
+    } else if (indexPath.row == 1) {
+        return 44;
+    } else {
+        if ([UIScreen mainScreen].bounds.size.height == 480.0) {
+            return 289;
+        } else {
+            return 379;
+        }
     }
 }
 

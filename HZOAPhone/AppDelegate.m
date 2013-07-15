@@ -109,7 +109,7 @@
     
     NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];
     NSString *currVersion = [SystemConfig getVersion];
-    if (![version isEqualToString:currVersion]) {
+    if (![version isEqualToString:currVersion] && currVersion != nil && ![currVersion isEqualToString:@""]) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
                                                         message:@"App的版本过低请下载新版本."
                                                        delegate:self

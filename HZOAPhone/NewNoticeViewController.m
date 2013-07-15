@@ -213,13 +213,23 @@
         notice.typeName = @"";
         notice.deptment = @"";
         notice.status = @"2";
-        [Notice serviceAddNotice:notice];
-        [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
+        NSString *retStr = [Notice serviceAddNotice:notice];
+        if (retStr) {
+            [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
+        } else {
+            [self performSelectorOnMainThread:@selector(alertFailure) withObject:nil waitUntilDone:NO];
+        }
+    
     }
 }
 
 - (void) alertAdd {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送完成" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+- (void) alertFailure {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alert show];
 }
 

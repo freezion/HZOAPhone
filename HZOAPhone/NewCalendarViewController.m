@@ -416,8 +416,13 @@
 }
 
 - (void) doEdit: (id) sender {
-    [Calendar updateCalendar:calendarObj];
-    [self performSelectorOnMainThread:@selector(alertEdit) withObject:nil waitUntilDone:NO];
+    NSString *retStr = [Calendar updateCalendar:calendarObj];
+    if (retStr) {
+        [self performSelectorOnMainThread:@selector(alertEdit) withObject:nil waitUntilDone:NO];
+    } else {
+        [self performSelectorOnMainThread:@selector(alertFailure) withObject:nil waitUntilDone:NO];
+    }
+
 }
 
 - (void)saveCancel:(id) sender {
@@ -430,14 +435,23 @@
 }
 
 - (void) doSend: (id) sender {
-    [Calendar addCalendar:calendarObj withEmployeeId:[usernamepasswordKVPairs objectForKey:KEY_USERID] withEventStoreId:nil];
-    
-    [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
+    NSString *retStr = [Calendar addCalendar:calendarObj withEmployeeId:[usernamepasswordKVPairs objectForKey:KEY_USERID] withEventStoreId:nil];
+    if (retStr) {
+        [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
+    } else {
+        [self performSelectorOnMainThread:@selector(alertFailure) withObject:nil waitUntilDone:NO];
+    }
+
 }
 
 - (void) alertAdd {
     alertAdd = [[UIAlertView alloc] initWithTitle:@"提示" message:@"添加完毕" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
     [alertAdd show];
+}
+
+- (void) alertFailure {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 - (void) alertEdit {

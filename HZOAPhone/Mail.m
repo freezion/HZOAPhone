@@ -91,7 +91,7 @@
     [request setDelegate:self];
     [request startSynchronous];
     NSLog(@" responseString ===== %@", [request responseString]);
-    return @"";
+    return [request responseString];
 }
 
 + (NSString *)serviceSaveTmpEmail:(Mail *) mail {
@@ -129,7 +129,7 @@
     [request setDelegate:self];
     [request startSynchronous];
     NSLog(@" responseString ===== %@", [request responseString]);
-    return @"";
+    return [request responseString];
 }
 
 + (NSMutableArray *) getLocalSenderEmail:(id) employeeId {
@@ -777,8 +777,10 @@
 
 + (void)requestFailed:(ASIHTTPRequest *)request
 {
+    [UserKeychain delete:KEY_LOGINID_PASSWORD];
     NSError *error = [request error];
-    NSLog(@"%@",error.localizedDescription);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[@"没有网络连接. error : " stringByAppendingString:error.localizedDescription] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end

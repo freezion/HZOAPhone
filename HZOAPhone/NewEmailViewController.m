@@ -224,13 +224,23 @@
         mail.deptment = @"";
         // 已发送 1
         mail.status = @"1";
-        [Mail serviceAddEmail:mail];
-        [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
+        NSString *retStr = [Mail serviceAddEmail:mail];
+        if (retStr) {
+            [self performSelectorOnMainThread:@selector(alertAdd) withObject:nil waitUntilDone:NO];
+        } else {
+            [self performSelectorOnMainThread:@selector(alertFailure) withObject:nil waitUntilDone:NO];
+        }
+    
     }
 }
 
 - (void) alertAdd {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送完成" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+- (void) alertFailure {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"发送失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alert show];
 }
 
@@ -297,9 +307,13 @@
     mail.deptment = @"";
     // 存储草稿 0
     mail.status = @"0";
-    [Mail serviceSaveTmpEmail:mail];
-    
-    [self performSelectorOnMainThread:@selector(alertTmp) withObject:nil waitUntilDone:NO];
+    NSString *retStr = [Mail serviceSaveTmpEmail:mail];
+    if (retStr) {
+        [self performSelectorOnMainThread:@selector(alertTmp) withObject:nil waitUntilDone:NO];
+    } else {
+        [self performSelectorOnMainThread:@selector(alertFailure) withObject:nil waitUntilDone:NO];
+    }
+
 }
 
 - (void) alertTmp {

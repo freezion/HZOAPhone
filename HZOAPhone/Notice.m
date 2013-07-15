@@ -7,6 +7,8 @@
 //
 
 #import "Notice.h"
+#import "MainViewController.h"
+#import "DDMenuController.h"
 
 @implementation Notice
 
@@ -23,6 +25,7 @@
 @synthesize status;
 @synthesize fileName;
 @synthesize fileId;
+@synthesize viewController;
 
 + (void)dropNoticeTable {
     NSString *databasePath = [NSUtil getDBPath];
@@ -107,7 +110,7 @@
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"无法访问，请检查网络连接" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
 //        [alert show];
 //    }
-    return @"";
+    return [request responseString];
 }
 
 + (NSMutableArray *)synchronizeNotice:(id) employeeId {
@@ -200,6 +203,8 @@
     } else {
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"无法访问，请检查网络连接" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
 //        [alert show];
+//        [self returnToLogin];
+//        [self performSelectorOnMainThread:@selector(returnToLogin) withObject:nil waitUntilDone:YES];
     }
     return dataList;
 }
@@ -449,8 +454,10 @@
 
 + (void)requestFailed:(ASIHTTPRequest *)request
 {
+    [UserKeychain delete:KEY_LOGINID_PASSWORD];
     NSError *error = [request error];
-    NSLog(@"%@",error.localizedDescription);
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[@"没有网络连接. error : " stringByAppendingString:error.localizedDescription] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end

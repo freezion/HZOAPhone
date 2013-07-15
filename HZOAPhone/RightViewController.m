@@ -104,7 +104,7 @@
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:newNoticeViewController];
         [menuController setRootController:navController animated:YES];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"不能发送公告" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"没有公告权限" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
         [alert show];
     }
     

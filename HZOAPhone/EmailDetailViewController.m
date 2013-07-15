@@ -40,6 +40,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([UIScreen mainScreen].bounds.size.height == 480.0) {
+        [self.txtContext setFrame:CGRectMake(6, 0, 289, 197)];
+    } else {
+        [self.txtContext setFrame:CGRectMake(6, 0, 289, 197)];
+    }
     self.title = @"邮件内容";
     [self initEmail];
 }
@@ -240,6 +245,25 @@
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"移到垃圾箱成功" delegate:self cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
             [alert show];
             [self.navigationController popViewControllerAnimated:YES];
+        }
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 0) {
+        return 45;
+    } else if (indexPath.row == 1) {
+        return 44;
+    } else if (indexPath.row == 2) {
+        return 44;
+    } else if (indexPath.row == 3) {
+        return 65;
+    } else {
+        if ([UIScreen mainScreen].bounds.size.height == 480.0) {
+            return 197;
+        } else {
+            return 288;
         }
     }
 }

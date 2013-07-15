@@ -15,6 +15,7 @@
 #import "Customer.h"
 #import "SystemConfig.h"
 #import "PublicCalendarViewController.h"
+#import "Employee.h"
 
 NSString *currentDateStr;
 NSDate *currentDate;
@@ -51,6 +52,7 @@ int indexOfTab = 0;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     eventsList = [[NSMutableArray alloc] initWithCapacity:10];
     [self setTitle:@"日程安排"];
     [tabBarCustom setSelectedItem:[tabBarCustom.items objectAtIndex:0]];
@@ -389,20 +391,24 @@ int indexOfTab = 0;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    Reachability *r = [Reachability reachabilityWithHostName:@"www.apple.com"];
-    switch ([r currentReachabilityStatus]) {
-        case NotReachable: {
-            // 没有网络连接
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"检测到没有网络连接" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-            break;
-        case ReachableViaWWAN:
-            // 使用3G网络
-            break;
-        case ReachableViaWiFi:
-            // 使用WiFi网络
-            break;
+//    Reachability *r = [Reachability reachabilityWithHostName:@"www.apple.com"];
+//    switch ([r currentReachabilityStatus]) {
+//        case NotReachable: {
+//            // 没有网络连接
+//            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"检测到没有网络连接" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+//            [alert show];
+//        }
+//            break;
+//        case ReachableViaWWAN:
+//            // 使用3G网络
+//            break;
+//        case ReachableViaWiFi:
+//            // 使用WiFi网络
+//            break;
+//    }
+    NSArray *empList = [Employee getAllEmployee];
+    if ([empList count] == 0) {
+        [Employee synchronizeEmployee];
     }
 }
 

@@ -12,8 +12,9 @@
 #import "ASIHTTPRequest.h"
 #import "ASIFormDataRequest.h"
 #import "UserKeychain.h"
+#import "SystemConfig.h"
 
-@interface Notice : NSObject {
+@interface Notice : NSObject <UIAlertViewDelegate> {
     NSString *ID;
     NSString *title;
     NSString *context;
@@ -27,6 +28,7 @@
     NSString *status;
     NSString *fileName;
     NSString *fileId;
+    id viewController;
 }
 
 @property (nonatomic, retain) NSString *ID;
@@ -42,6 +44,7 @@
 @property (nonatomic, retain) NSString *status;
 @property (nonatomic, retain) NSString *fileName;
 @property (nonatomic, retain) NSString *fileId;
+@property (nonatomic, retain) id viewController;
 
 + (NSMutableArray *) getAllNotice:(id) noticeID withSync:(BOOL) flag;
 + (void)createNoticeTable;

@@ -35,7 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    flag = 999;
+    //flag = 999;
 	// Do any additional setup after loading the view.
     if ([UIScreen mainScreen].bounds.size.height == 480.0) {
         [self.lblUserId setFrame:CGRectMake(23, 73, 86, 21)];

@@ -33,5 +33,6 @@
 + (void)insertSystemConfig:(SystemConfig *) systemConfig;
 + (NSString *) getVersion;
 + (NSMutableArray *) getNoticeType:(NSString *) employeeId;
++ (void) returnToLogin;
 
 @end
