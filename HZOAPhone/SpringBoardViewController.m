@@ -82,6 +82,7 @@
 }
 
 - (IBAction)showCalendar:(id) sender {
+    [Employee deleteAllTmpContact];
     AppDelegate *d = [[UIApplication sharedApplication] delegate];
     d.calendarMessage = @"0";
     DDMenuController *menuController = (DDMenuController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;

@@ -43,7 +43,6 @@
 @synthesize calendarObj;
 @synthesize invationsLocal;
 @synthesize editFlag;
-@synthesize listContactCustom;
 @synthesize customerCell;
 @synthesize switchPrivate;
 @synthesize deleteButton;
@@ -86,7 +85,6 @@
 - (void) newInitEvent {
     
     usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
-    listContactCustom = [[NSMutableDictionary alloc] init];
     NSString *canRead = [usernamepasswordKVPairs objectForKey:KEY_READ_CONTRACT];
     if ([@"0" isEqualToString:canRead]) {
         customerCell.hidden = YES;
@@ -126,17 +124,11 @@
         startLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy年M月d日 HH:mm"];
         endLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy年M月d日 HH:mm"];
         
-        NSString *invationIds = calendarObj.Employee_Id;
-        NSArray *idList = [invationIds componentsSeparatedByString:@","];
         NSString *invationNames = calendarObj.CustomerName;
         //NSLog(@"invationNames === %@", invationNames);
         NSArray *nameList = [invationNames componentsSeparatedByString:@","];
         tokenList = [[NSMutableArray alloc] initWithCapacity:20];
         //NSLog(@"count === %d", [nameList count]);
-        for (int i = 0; i < [nameList count]; i ++) {
-            [tokenList addObject:[nameList objectAtIndex:i]];
-            [listContactCustom setObject:[idList objectAtIndex:i] forKey:[NSString stringWithFormat:@"%d", i]];
-        }
         if ([invationNames isEqualToString:@""]) {
             invitionLabel.text = @"无";
         } else {
@@ -239,7 +231,6 @@
         InvitEmployeeViewController *invitEmployeeViewController = segue.destinationViewController;
         invitEmployeeViewController.delegate = self;
         invitEmployeeViewController.tokens = tokenList;
-        invitEmployeeViewController.listContactId = listContactCustom;
     } else if ([segue.identifier isEqualToString:@"AlertPicker"]) {
         EventAlertViewController *eventAlertViewController = segue.destinationViewController;
         eventAlertViewController.delegate = self;
@@ -627,7 +618,6 @@
         i ++;
     }
     invationsLocal = value;
-    listContactCustom = listContactId;
     if ([tokens count] > 0) {
         self.invitionLabel.text = [NSString stringWithFormat:@"%d", [tokens count]];
     } else {

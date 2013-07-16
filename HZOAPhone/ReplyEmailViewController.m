@@ -127,6 +127,7 @@
     [toField setDelegate:self];
     
     toButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    toButton.tag = 0;
 	[toButton addTarget:self action:@selector(showContactsPicker:) forControlEvents:UIControlEventTouchUpInside];
 	[[toField textField] setRightView:toButton];
 	[[toField textField] addTarget:self action:@selector(tokenFieldChangedEditing:) forControlEvents:UIControlEventEditingDidBegin];
@@ -140,6 +141,7 @@
     [ccField setDelegate:self];
     
     ccButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    ccButton.tag = 1;
 	[ccButton addTarget:self action:@selector(showContactsPicker:) forControlEvents:UIControlEventTouchUpInside];
 	[[ccField textField] setRightView:ccButton];
 	[[ccField textField] addTarget:self action:@selector(tokenFieldChangedEditing:) forControlEvents:UIControlEventEditingDidBegin];

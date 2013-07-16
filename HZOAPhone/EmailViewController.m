@@ -431,8 +431,10 @@
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认要删除这些邮件吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
         alert.tag = 0;
         [alert show];
+    } else {
+        editFlag = NO;
+        [self.tableViewCustom performSelector:@selector(reloadData) withObject:nil afterDelay:0];
     }
-    [self.tableViewCustom performSelector:@selector(reloadData) withObject:nil afterDelay:0.3];
 }
 
 - (void) expandingBarWillDisappear:(RNExpandingButtonBar *)bar

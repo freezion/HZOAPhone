@@ -361,7 +361,7 @@
     if (sqlite3_open(dbpath, &hzoaDB)==SQLITE_OK)
     {
         char *errMsg;
-        const char *sql_stmt = "CREATE TABLE IF NOT EXISTS TMPEMPLOYEE(ID VARCHAR(20) PRIMARY KEY, NAME TEXT, FORCC VARCHAR(5));";
+        const char *sql_stmt = "CREATE TABLE IF NOT EXISTS TMPEMPLOYEE(ID VARCHAR(20), NAME TEXT, FORCC VARCHAR(5));";
         if (sqlite3_exec(hzoaDB, sql_stmt, NULL, NULL, &errMsg)!=SQLITE_OK) {
             NSLog(@"create failed!\n");
         }

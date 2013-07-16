@@ -51,7 +51,6 @@
     NSMutableDictionary *usernamepasswordKVPairs;
     UIAlertView *alertAdd;
     BOOL editFlag;
-    NSMutableDictionary *listContactCustom;
     UITableViewCell *customerCell;
 }
 
@@ -86,7 +85,6 @@
 @property (nonatomic, retain) UIToolbar *keyboardToolbar;
 @property (nonatomic, retain) Calendar *calendarObj;
 @property (nonatomic, retain) NSString *invationsLocal;
-@property (nonatomic, retain) NSMutableDictionary *listContactCustom;
 @property (nonatomic) BOOL editFlag;
 
 - (IBAction)deleteCalendarEvent:(id)sender;

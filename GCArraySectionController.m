@@ -61,16 +61,20 @@
         thisCell.accessoryType = UITableViewCellAccessoryNone;
         if (buttonId.tag == 0) {
             [Employee deleteTmpContact:employee._id withForCC:@"0"];
-        } else {
+        } else if (buttonId.tag == 1) {
             [Employee deleteTmpContact:employee._id withForCC:@"1"];
+        } else {
+            [Employee deleteTmpContact:employee._id withForCC:@"2"];
         }
         flag = FALSE;
     }
     NSArray *selectedList = [[NSArray alloc] init];
     if (buttonId.tag == 0) {
         selectedList = [Employee getTmpContactByCC:@"0"];
-    } else {
+    } else if (buttonId.tag == 1) {
         selectedList = [Employee getTmpContactByCC:@"1"];
+    } else {
+        selectedList = [Employee getTmpContactByCC:@"2"];
     }
     if (selectedList) {
         for (int i = 0; i < selectedList.count; i ++) {
@@ -91,7 +95,7 @@
         [delegateNewEmail deleteContact:employee._id theName:employee._name withButton:buttonId];
         [delegateReply deleteContact:employee._id theName:employee._name withButton:buttonId];
         [delegateForward deleteContact:employee._id theName:employee._name withButton:buttonId];
-        //[delegateInvitEmployee deleteContact:employee._id theName:employee._name withButton:buttonId];
+        [delegateInvitEmployee deleteContact:employee._id theName:employee._name];
         //[delegateNewNotice deleteContact:employee._id theName:employee._name withButton:buttonId];
         //[delegateMostContact deleteContact:employee._id theName:employee._name withButton:buttonId];
     }

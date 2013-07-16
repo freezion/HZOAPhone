@@ -76,6 +76,7 @@
 }
 
 - (IBAction)showNewCalendar:(id) sender {
+    [Employee deleteAllTmpContact];
     DDMenuController *menuController = (DDMenuController *)((AppDelegate *)[[UIApplication sharedApplication] delegate]).menuController;
     UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"HZOAStoryboard" bundle:nil];
     NewCalendarViewController *newCalendarViewController = [storyborad instantiateViewControllerWithIdentifier:@"NewCalendarViewController"];

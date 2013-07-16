@@ -13,6 +13,7 @@
 
 @protocol InvitEmployeeDelegate <NSObject>
 - (void) showContact:(NSString *) contactId theName:(NSString *) contactName;
+- (void) deleteContact:(NSString *) contactId theName:(NSString *) contactName;
 @end
 
 @protocol InvitEmployeeViewControllerDelegate <NSObject>

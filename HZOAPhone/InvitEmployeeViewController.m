@@ -59,21 +59,23 @@
     [toField setDelegate:self];
     
     UIButton * addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    addButton.tag = 2;
 	[addButton addTarget:self action:@selector(showContactsPicker:) forControlEvents:UIControlEventTouchUpInside];
 	[[toField textField] setRightView:addButton];
 	[[toField textField] addTarget:self action:@selector(tokenFieldChangedEditing:) forControlEvents:UIControlEventEditingDidBegin];
 	[[toField textField] addTarget:self action:@selector(tokenFieldChangedEditing:) forControlEvents:UIControlEventEditingDidEnd];
     [[toField textField] setRightViewMode:UITextFieldViewModeAlways];
+    
+    NSArray *empList = [Employee getTmpContactByCC:@"2"];
+    
     toRecipients = [[NSMutableArray alloc] init];
-    if ([tokens count] > 0) {
+    if ([empList count] > 0) {
         NSMutableString *recipient = [NSMutableString string];
         
         NSMutableCharacterSet *charSet = [[NSCharacterSet whitespaceCharacterSet] mutableCopy];
         [charSet formUnionWithCharacterSet:[NSCharacterSet punctuationCharacterSet]];
-        
-        for (NSString *reciver in tokens) {
-            [toField addTokenWithTitle:reciver representedObject:recipient];
-            
+        for (Employee *emp in empList) {
+            [toField addTokenWithTitle:emp._name representedObject:emp._id];
         }
     } else {
         listContactId = [[NSMutableDictionary alloc] init];
@@ -90,6 +92,7 @@
     UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"HZOAStoryboard" bundle:nil];
     SwitchViewController *switchViewController = [storyborad instantiateViewControllerWithIdentifier:@"SwitchViewController"];
     switchViewController.delegateInvitEmployee = self;
+    switchViewController.buttonId = sender;
     UINavigationController *tmpNavController = [[UINavigationController alloc] initWithRootViewController:switchViewController];
     [self.navigationController presentModalViewController:tmpNavController animated:YES];
 }
@@ -106,7 +109,13 @@
 
 - (void) showContact:(NSString *) contactId theName:(NSString *) contactName
 {
+    Employee *employee = [[Employee alloc] init];
+    employee._id = contactId;
+    employee._name = contactName;
+    employee._forCC = @"2";
+    [Employee insertTmpContact:employee];
     [toField addTokenWithTitle:contactName representedObject:contactId];
+    //[toField addTokenWithTitle:contactName representedObject:contactId];
     [self.listContactId setObject:contactId forKey:[NSString stringWithFormat:@"%d", toField.tokens.count]];
 }
 
@@ -148,6 +157,10 @@
 	}
     
     return NO;
+}
+
+- (void) deleteContact:(NSString *) contactId theName:(NSString *) contactName {
+    [toField removeTokenWithRepresentedObject:contactId];
 }
 
 - (void)backAction:(id) sender {

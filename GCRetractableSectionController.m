@@ -138,8 +138,10 @@
     
     if (buttonId.tag == 0) {
         selectedList = [Employee getTmpContactByCC:@"0"];
-    } else {
+    } else if (buttonId.tag == 1) {
         selectedList = [Employee getTmpContactByCC:@"1"];
+    } else {
+        selectedList = [Employee getTmpContactByCC:@"2"];
     }
     
     if (selectedList) {
