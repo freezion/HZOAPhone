@@ -272,6 +272,7 @@
         //cell.readImageView.image = [UIImage imageNamed:@"Unselected.png"];
 		//cell.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.readImageView setFrame:CGRectMake(0, 7, 30, 30)];
         if (mail.isChecked) {
             
             cell.readImageView.image = [UIImage imageNamed:@"Selected.png"];
@@ -294,13 +295,14 @@
     UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"HZOAStoryboard" bundle:nil];
     if (editFlag) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.readImageView setFrame:CGRectMake(0, 7, 30, 30)];
         if (mail.isChecked) {
             cell.readImageView.image = [UIImage imageNamed:@"Unselected.png"];
-            cell.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
+            //cell.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
             mail.isChecked = NO;
         } else {
             cell.readImageView.image = [UIImage imageNamed:@"Selected.png"];
-            cell.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
+            //cell.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
             mail.isChecked = YES;
         }
         
