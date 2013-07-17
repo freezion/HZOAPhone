@@ -19,6 +19,7 @@
 		3305CDFC17840B6F005E266B /* MBSpinningCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3305CDF317840B6F005E266B /* MBSpinningCircle.m */; };
 		3305CDFF17842C67005E266B /* searchInput.png in Resources */ = {isa = PBXBuildFile; fileRef = 3305CDFD17842C67005E266B /* searchInput.png */; };
 		3305CE0017842C67005E266B /* searchInput@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3305CDFE17842C67005E266B /* searchInput@2x.png */; };
+		3315E816179632C800552161 /* pad_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 3315E815179632C800552161 /* pad_logo.png */; };
 		3321A1BC162BF7BE0024F433 /* DDMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3321A1BB162BF7BE0024F433 /* DDMenuController.m */; };
 		3321A1BF162BF8B00024F433 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3321A1BD162BF8430024F433 /* QuartzCore.framework */; };
 		33240000162D673C00D41389 /* writeNotice.png in Resources */ = {isa = PBXBuildFile; fileRef = 3324FFFE162D673C00D41389 /* writeNotice.png */; };
@@ -282,6 +283,7 @@
 		3305CDF317840B6F005E266B /* MBSpinningCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBSpinningCircle.m; sourceTree = "<group>"; };
 		3305CDFD17842C67005E266B /* searchInput.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = searchInput.png; sourceTree = "<group>"; };
 		3305CDFE17842C67005E266B /* searchInput@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchInput@2x.png"; sourceTree = "<group>"; };
+		3315E815179632C800552161 /* pad_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pad_logo.png; sourceTree = "<group>"; };
 		3321A1BA162BF7BE0024F433 /* DDMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDMenuController.h; sourceTree = "<group>"; };
 		3321A1BB162BF7BE0024F433 /* DDMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDMenuController.m; sourceTree = "<group>"; };
 		3321A1BD162BF8430024F433 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1126,6 +1128,7 @@
 		33D06B711627F3C600D8229A /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				3315E815179632C800552161 /* pad_logo.png */,
 				33FB2688178D4289002FFEDF /* Selected.png */,
 				33FB2689178D4294002FFEDF /* Unselected.png */,
 				33FB267C178D01F7002FFEDF /* RedBigBtn@2x.png */,
@@ -1415,6 +1418,7 @@
 				33FB268A178D4299002FFEDF /* Selected.png in Resources */,
 				33FB268B178D4299002FFEDF /* Unselected.png in Resources */,
 				3328A3FD1793DB4100234682 /* 1Star.png in Resources */,
+				3315E816179632C800552161 /* pad_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

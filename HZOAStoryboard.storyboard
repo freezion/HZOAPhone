@@ -1213,8 +1213,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo_hz256.png" id="GAQ-QE-345">
-                                <rect key="frame" x="10" y="5" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="pad_logo.png" id="GAQ-QE-345">
+                                <rect key="frame" x="58" y="10" width="230" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5gT-bl-Mm0">
@@ -3077,8 +3077,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="alphabet" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="logo_hz256.png" id="xbf-jr-EXl">
-                                <rect key="frame" x="10" y="17" width="40" height="40"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="pad_logo.png" id="x1h-eW-r7f">
+                                <rect key="frame" x="58" y="10" width="230" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9uY-Ka-S1w">
@@ -3242,11 +3242,11 @@
         <image name="info.png" width="177" height="72"/>
         <image name="login2.jpg" width="320" height="245"/>
         <image name="login_lock.png" width="31" height="41"/>
-        <image name="logo_hz256.png" width="256" height="256"/>
         <image name="logout.png" width="32" height="32"/>
         <image name="mail_phoneHD.png" width="128" height="128"/>
         <image name="member_phoneHD.png" width="128" height="128"/>
         <image name="note_phoneHD.png" width="128" height="128"/>
+        <image name="pad_logo.png" width="230" height="50"/>
         <image name="paper_plane.png" width="24" height="24"/>
         <image name="springboard2.png" width="320" height="460"/>
         <image name="star.png" width="24" height="24"/>
