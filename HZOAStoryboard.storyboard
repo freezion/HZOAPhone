@@ -2224,7 +2224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kvx-Hz-Uva" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="278" y="767"/>
+            <point key="canvasLocation" x="285" y="804"/>
         </scene>
         <!--Email Detail View Controller-->
         <scene sceneID="422-cg-TZj">
