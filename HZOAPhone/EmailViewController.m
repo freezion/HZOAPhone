@@ -402,7 +402,7 @@
 {
     //NSLog(@"did appear");
     editFlag = YES;
-    [self.tableViewCustom performSelector:@selector(reloadData) withObject:nil afterDelay:0.3];
+    [self.tableViewCustom reloadData];
 }
 
 - (void) expandingBarWillAppear:(RNExpandingButtonBar *)bar
@@ -435,7 +435,7 @@
         [alert show];
     } else {
         editFlag = NO;
-        [self.tableViewCustom performSelector:@selector(reloadData) withObject:nil afterDelay:0];
+        [self.tableViewCustom reloadData];
     }
 }
 
@@ -447,10 +447,10 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 0) {
-        editFlag = FALSE;
+        editFlag = NO;
         [self refreshTableView];
     } else {
-        editFlag = FALSE;
+        editFlag = NO;
         if (alertView.tag == 0) {
             NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
             if (indexOfTab == 3) {
