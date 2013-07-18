@@ -57,13 +57,13 @@
 
 + (NSMutableArray *)loadSystemConfigById:(NSString *) sender {
     NSMutableArray *dataList = [[NSMutableArray alloc] initWithCapacity:20];
-    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Setting.asmx/getSettingByTypeId"];
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Setting.asmx/getWorkTypeByEmpId"];
     NSURL *url = [NSURL URLWithString:webserviceUrl];
     NSLog(@"%@", url);
     ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod:@"POST"];
     [request addRequestHeader:@"Content-Type" value:@"text/xml; charset=utf-8"];
-    [request setPostValue:sender forKey:@"typeId"];
+    [request setPostValue:sender forKey:@"EmpId"];
     [request buildPostBody];
     [request setDelegate:self];
     [request startSynchronous];
