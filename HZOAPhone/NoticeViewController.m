@@ -372,7 +372,7 @@
         if (alertView.tag == 0) {
             NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
             //deleteNotice
-            
+            [Notice deleteNoticeById:deleteList withEmployeeId:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
             [self refreshTableView];
         }
     }

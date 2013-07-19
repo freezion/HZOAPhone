@@ -463,8 +463,19 @@
 }
 
 + (NSString *)deleteNoticeById:(NSString *) noticeId withEmployeeId:(NSString *) employeeId {
-    
-    return @"";
+    NSString *webserviceUrl = [[NSUtil chooseRealm] stringByAppendingString:@"Notice.asmx/delNotice"];
+    NSURL *url = [NSURL URLWithString:webserviceUrl];
+    //NSLog(@"%@", url);
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"POST"];
+    [request addRequestHeader:@"Content-Type" value:@"text/xml; charset=utf-8"];
+    [request setPostValue:noticeId forKey:@"id"];
+    [request setPostValue:employeeId forKey:@"employeeId"];
+    [request buildPostBody];
+    [request setDelegate:self];
+    [request startSynchronous];
+    NSLog(@"%@", [request responseString]);
+    return [request responseString];
 }
 
 @end
