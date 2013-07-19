@@ -173,6 +173,7 @@
                 NSString *statusField = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 10)];
                 notice.status = statusField;
                 
+                notice.isChecked = NO;
                 [noticeList addObject:notice];
             }
             sqlite3_finalize(statement);
@@ -459,6 +460,11 @@
     NSError *error = [request error];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:[@"没有网络连接. error : " stringByAppendingString:error.localizedDescription] delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [alert show];
+}
+
++ (NSString *)deleteNoticeById:(NSString *) noticeId withEmployeeId:(NSString *) employeeId {
+    
+    return @"";
 }
 
 @end

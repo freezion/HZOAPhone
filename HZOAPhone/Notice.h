@@ -57,5 +57,6 @@
 + (NSString *)serviceAddNotice:(Notice *) notice;
 + (NSMutableArray *) loadNotice:(NSData *) responseData withSync:(BOOL) flag;
 + (void)readedNotice:(NSString *) noticeId withEmployeeId:(NSString *) employeeId;
++ (NSString *)deleteNoticeById:(NSString *) noticeId withEmployeeId:(NSString *) employeeId;
 
 @end

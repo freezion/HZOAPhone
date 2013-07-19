@@ -54,7 +54,7 @@
     [[toField label] setTextColor:[UIColor darkGrayColor]];
     [[toField label] setText:@""];
     [[toField label] setFont:[UIFont fontWithName:@"MicrosoftYaHei" size:18.0]];
-    [[toField textField] setTag:0];
+    [[toField textField] setTag:2];
     [toField setBackgroundColor:color];
     [toField setDelegate:self];
     
@@ -70,8 +70,6 @@
     
     toRecipients = [[NSMutableArray alloc] init];
     if ([empList count] > 0) {
-        NSMutableString *recipient = [NSMutableString string];
-        
         NSMutableCharacterSet *charSet = [[NSCharacterSet whitespaceCharacterSet] mutableCopy];
         [charSet formUnionWithCharacterSet:[NSCharacterSet punctuationCharacterSet]];
         for (Employee *emp in empList) {

@@ -60,7 +60,7 @@
     /* ---------------------------------------------------------
      * Create the center for the main button and origin of animations
      * -------------------------------------------------------*/
-    CGPoint center = CGPointMake(self.view.frame.size.width - 22, self.view.frame.size.height - 135.0f);
+    CGPoint center = CGPointMake(self.view.frame.size.width - 22, self.view.frame.size.height - 85.0f);
     
     /* ---------------------------------------------------------
      * Setup buttons
@@ -85,7 +85,7 @@
     /* ---------------------------------------------------------
      * Init method, passing everything the bar needs to work
      * -------------------------------------------------------*/
-    RNExpandingButtonBar *bar = [[RNExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:nil center:center];
+    bar = [[RNExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:nil center:center];
     //
     //    /* ---------------------------------------------------------
     //     * Settings
@@ -146,21 +146,21 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
-{
-    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
-    Notice *notice = [noticeList objectAtIndex:[self.tableViewCustom indexPathForSelectedRow].row];
-    NoticeDetailViewController *noticeDetailViewController = [segue destinationViewController];
-    noticeDetailViewController.notice = notice;
-    
-    if ([notice.readed isEqualToString:@"0"]) {
-        [Notice readedNotice:notice.ID withEmployeeId:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
-        noticeList = [Notice getAllNotice:[usernamepasswordKVPairs objectForKey:KEY_USERID] withSync:YES];
-        [self.tableViewCustom reloadData];
-    }
-    
-    refreshFlag = @"NO";
-}
+//-(void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+//{
+//    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
+//    Notice *notice = [noticeList objectAtIndex:[self.tableViewCustom indexPathForSelectedRow].row];
+//    NoticeDetailViewController *noticeDetailViewController = [segue destinationViewController];
+//    noticeDetailViewController.notice = notice;
+//    
+//    if ([notice.readed isEqualToString:@"0"]) {
+//        [Notice readedNotice:notice.ID withEmployeeId:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
+//        noticeList = [Notice getAllNotice:[usernamepasswordKVPairs objectForKey:KEY_USERID] withSync:YES];
+//        [self.tableViewCustom reloadData];
+//    }
+//    
+//    refreshFlag = @"NO";
+//}
 
 -(void)refreshTableView { 
     NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
@@ -188,6 +188,8 @@
     
 	Notice *notice = [self.noticeList objectAtIndex:indexPath.row];
 	cell.nameLabel.text = notice.title;
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     //NSLog(@"title ==== %@, readed ==== %@", notice.title, notice.readed);
     if ([notice.readed isEqualToString:@"0"]) {
         cell.readImageView.image = [UIImage imageNamed:@"1Star.png"];
@@ -199,6 +201,16 @@
     } else {
         [cell.attachmentImageView setImage:[UIImage imageNamed:@"attachment"]];
     }
+    
+    if (editFlag) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.readImageView setFrame:CGRectMake(0, 7, 30, 30)];
+        if (notice.isChecked) {
+            cell.readImageView.image = [UIImage imageNamed:@"Selected.png"];
+        } else {
+            cell.readImageView.image = [UIImage imageNamed:@"Unselected.png"];
+        }
+    }
     return cell;
 }
 
@@ -206,6 +218,34 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
+    Notice *notice = [noticeList objectAtIndex:[self.tableViewCustom indexPathForSelectedRow].row];
+    NoticeCell *cell = (NoticeCell *)[tableView cellForRowAtIndexPath:indexPath];
+    UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"HZOAStoryboard" bundle:nil];
+    NoticeDetailViewController *noticeDetailViewController = [storyborad instantiateViewControllerWithIdentifier:@"NoticeDetailViewController"];
+    noticeDetailViewController.notice = notice;
+    if (editFlag) {
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell.readImageView setFrame:CGRectMake(0, 7, 30, 30)];
+        if (notice.isChecked) {
+            cell.readImageView.image = [UIImage imageNamed:@"Unselected.png"];
+            //cell.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
+            notice.isChecked = NO;
+        } else {
+            cell.readImageView.image = [UIImage imageNamed:@"Selected.png"];
+            //cell.backgroundView.backgroundColor = [UIColor colorWithRed:223.0/255.0 green:230.0/255.0 blue:250.0/255.0 alpha:1.0];
+            notice.isChecked = YES;
+        }
+    } else {
+        [self.navigationController pushViewController:noticeDetailViewController animated:YES];
+        if ([notice.readed isEqualToString:@"0"]) {
+            [Notice readedNotice:notice.ID withEmployeeId:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
+            noticeList = [Notice getAllNotice:[usernamepasswordKVPairs objectForKey:KEY_USERID] withSync:YES];
+            [self.tableViewCustom reloadData];
+        }
+    }
+    
+    refreshFlag = @"NO";
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -278,6 +318,8 @@
 - (void) expandingBarDidAppear:(RNExpandingButtonBar *)bar
 {
     //NSLog(@"did appear");
+    editFlag = YES;
+    [self.tableViewCustom reloadData];
 }
 
 - (void) expandingBarWillAppear:(RNExpandingButtonBar *)bar
@@ -288,11 +330,52 @@
 - (void) expandingBarDidDisappear:(RNExpandingButtonBar *)bar
 {
     //NSLog(@"did disappear");
+    NSMutableArray *deleteNotice = [[NSMutableArray alloc] init];
+    deleteList = @"";
+    for (int i = 0; i < [noticeList count]; i ++) {
+        Notice *notice = [noticeList objectAtIndex:i];
+        if (notice.isChecked) {
+            [deleteNotice addObject:notice];
+        }
+    }
+    
+    for (int i = 0; i < [deleteNotice count]; i ++) {
+        Notice *notice = [deleteNotice objectAtIndex:i];
+        deleteList = [deleteList stringByAppendingFormat:@"%@", notice.ID];
+        if (i != [deleteNotice count] - 1) {
+            deleteList = [deleteList stringByAppendingString:@","];
+        }
+    }
+    
+    if (![deleteList isEqualToString:@""]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认要删除这些公告吗?" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确认", nil];
+        alert.tag = 0;
+        [alert show];
+    } else {
+        editFlag = NO;
+        [self.tableViewCustom reloadData];
+    }
 }
 
 - (void) expandingBarWillDisappear:(RNExpandingButtonBar *)bar
 {
     //NSLog(@"will disappear");
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        editFlag = NO;
+        [self refreshTableView];
+    } else {
+        editFlag = NO;
+        if (alertView.tag == 0) {
+            NSMutableDictionary *usernamepasswordKVPairs = (NSMutableDictionary *)[UserKeychain load:KEY_LOGINID_PASSWORD];
+            //deleteNotice
+            
+            [self refreshTableView];
+        }
+    }
 }
 
 @end

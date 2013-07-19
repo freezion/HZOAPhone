@@ -159,8 +159,10 @@ NSString *const JSDeletedTokenKey = @"JSDeletedTokenKey";
             tokenToRemove = token;
             if (_textField.tag == 0) {
                 [Employee deleteTmpContact:token.representedObject withForCC:@"0"];
-            } else {
+            } else if (_textField.tag == 1) {
                 [Employee deleteTmpContact:token.representedObject withForCC:@"1"];
+            } else {
+                [Employee deleteTmpContact:token.representedObject withForCC:@"2"];
             }
             break;
         }
