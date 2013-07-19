@@ -66,7 +66,7 @@
         } else {
             [Employee deleteTmpContact:employee._id withForCC:@"2"];
         }
-        flag = FALSE;
+        flag = NO;
     }
     NSArray *selectedList = [[NSArray alloc] init];
     if (buttonId.tag == 0) {
@@ -80,7 +80,7 @@
         for (int i = 0; i < selectedList.count; i ++) {
             Employee *tmpEmployee = [selectedList objectAtIndex:i];
             if ([tmpEmployee._id isEqualToString:employee._id]) {
-                flag = FALSE;
+                flag = NO;
                 break;
             }
         }

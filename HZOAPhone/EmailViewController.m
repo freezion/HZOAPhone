@@ -43,7 +43,7 @@
 	// Do any additional setup after loading the view.
     
     self.title = @"收件箱";
-    editFlag = FALSE;
+    editFlag = NO;
     if (_refreshHeaderView == nil) {
 		
 		EGORefreshTableHeaderView *view = [[EGORefreshTableHeaderView alloc] initWithFrame:CGRectMake(0.0f, 0.0f - self.tableViewCustom.bounds.size.height, self.view.frame.size.width, self.tableViewCustom.bounds.size.height)];
