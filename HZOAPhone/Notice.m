@@ -26,6 +26,7 @@
 @synthesize fileName;
 @synthesize fileId;
 @synthesize viewController;
+@synthesize isChecked;
 
 + (void)dropNoticeTable {
     NSString *databasePath = [NSUtil getDBPath];

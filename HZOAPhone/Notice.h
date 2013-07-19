@@ -29,6 +29,7 @@
     NSString *fileName;
     NSString *fileId;
     id viewController;
+    BOOL isChecked;
 }
 
 @property (nonatomic, retain) NSString *ID;
@@ -45,6 +46,7 @@
 @property (nonatomic, retain) NSString *fileName;
 @property (nonatomic, retain) NSString *fileId;
 @property (nonatomic, retain) id viewController;
+@property (assign, nonatomic) BOOL isChecked;
 
 + (NSMutableArray *) getAllNotice:(id) noticeID withSync:(BOOL) flag;
 + (void)createNoticeTable;

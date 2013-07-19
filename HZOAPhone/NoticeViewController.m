@@ -22,6 +22,7 @@
 @synthesize tableViewCustom;
 @synthesize noticeList;
 @synthesize refreshFlag;
+@synthesize bar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,6 +48,55 @@
 	}
 	//  update the last update date
 	[_refreshHeaderView refreshLastUpdatedDate];
+    
+    /* ---------------------------------------------------------
+     * Create images that are used for the main button
+     * -------------------------------------------------------*/
+    UIImage *image = [UIImage imageNamed:@"red_plus_up.png"];
+    UIImage *selectedImage = [UIImage imageNamed:@"red_plus_down.png"];
+    UIImage *toggledImage = [UIImage imageNamed:@"red_x_up.png"];
+    UIImage *toggledSelectedImage = [UIImage imageNamed:@"red_x_down.png"];
+    
+    /* ---------------------------------------------------------
+     * Create the center for the main button and origin of animations
+     * -------------------------------------------------------*/
+    CGPoint center = CGPointMake(self.view.frame.size.width - 22, self.view.frame.size.height - 135.0f);
+    
+    /* ---------------------------------------------------------
+     * Setup buttons
+     * Note: I am setting the frame to the size of my images
+     * -------------------------------------------------------*/
+    //    CGRect buttonFrame = CGRectMake(0, 0, 48.0f, 48.0f);
+    //    UIButton *b1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    [b1 setFrame:buttonFrame];
+    //    [b1 setImage:[UIImage imageNamed:@"con_icon_Sign.png"] forState:UIControlStateNormal];
+    //    [b1 setImage:[UIImage imageNamed:@"con_icon_Sign_click.png"] forState:UIControlStateHighlighted];
+    //    [b1 addTarget:self action:@selector(onNext) forControlEvents:UIControlEventTouchUpInside];
+    //    UIButton *b2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    [b2 setImage:[UIImage imageNamed:@"lightbulb.png"] forState:UIControlStateNormal];
+    //    [b2 setFrame:buttonFrame];
+    //    [b2 addTarget:self action:@selector(onAlert) forControlEvents:UIControlEventTouchUpInside];
+    //    UIButton *b3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    //    [b3 setImage:[UIImage imageNamed:@"check.png"] forState:UIControlStateNormal];
+    //    [b3 setFrame:buttonFrame];
+    //    [b3 addTarget:self action:@selector(onModal) forControlEvents:UIControlEventTouchUpInside];
+    //    NSArray *buttons = [NSArray arrayWithObjects:b1, nil];
+    
+    /* ---------------------------------------------------------
+     * Init method, passing everything the bar needs to work
+     * -------------------------------------------------------*/
+    RNExpandingButtonBar *bar = [[RNExpandingButtonBar alloc] initWithImage:image selectedImage:selectedImage toggledImage:toggledImage toggledSelectedImage:toggledSelectedImage buttons:nil center:center];
+    //
+    //    /* ---------------------------------------------------------
+    //     * Settings
+    //     * -------------------------------------------------------*/
+    [bar setDelegate:self];
+    [bar setSpin:YES];
+    
+    /* ---------------------------------------------------------
+     * Set our property and add it to the view
+     * -------------------------------------------------------*/
+    [[self view] addSubview:bar];
 }
 
 - (void)viewDidUnload
@@ -220,6 +270,29 @@
 	// Remove HUD from screen when the HUD was hidded
 	[HUD removeFromSuperview];
 	HUD = nil;
+}
+
+/* ---------------------------------------------------------
+ * Delegate methods of ExpandingButtonBarDelegate
+ * -------------------------------------------------------*/
+- (void) expandingBarDidAppear:(RNExpandingButtonBar *)bar
+{
+    //NSLog(@"did appear");
+}
+
+- (void) expandingBarWillAppear:(RNExpandingButtonBar *)bar
+{
+    //NSLog(@"will appear");
+}
+
+- (void) expandingBarDidDisappear:(RNExpandingButtonBar *)bar
+{
+    //NSLog(@"did disappear");
+}
+
+- (void) expandingBarWillDisappear:(RNExpandingButtonBar *)bar
+{
+    //NSLog(@"will disappear");
 }
 
 @end
