@@ -270,7 +270,7 @@ int indexOfTab = 0;
 }
 
 - (void)onNext {
-    NSArray *eventArray = [self fetchEventsForToday:currentDate];
+    NSArray *eventArray = [self fetchEventsForHalfYear:currentDate];
     NSError *error;
     for (EKEvent *event in eventArray) {
         [eventStore removeEvent:event span:EKSpanThisEvent error:&error];
@@ -313,6 +313,20 @@ int indexOfTab = 0;
     
 	NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:startDate endDate:endDate
                                                                     calendars:calendarArray];
+	
+	// Fetch all events that match the predicate.
+	NSArray *events = [eventStore eventsMatchingPredicate:predicate];
+	return events;
+}
+
+- (NSArray *)fetchEventsForHalfYear:(NSDate *) startDate {
+    NSTimeInterval  interval = 24 * 60 * 60 * 365;
+    NSDate *endDate = [currentDate initWithTimeIntervalSinceNow:+interval];
+	// Create the predicate. Pass it the default calendar.
+	NSArray *calendarArray = [NSArray arrayWithObject:defaultCalendar];
+    
+	NSPredicate *predicate = [eventStore predicateForEventsWithStartDate:startDate endDate:endDate
+                                                               calendars:calendarArray];
 	
 	// Fetch all events that match the predicate.
 	NSArray *events = [eventStore eventsMatchingPredicate:predicate];
