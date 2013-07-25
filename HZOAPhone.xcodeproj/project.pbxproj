@@ -433,7 +433,6 @@
 		33C1B77416368F3B00CA5A27 /* Mail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mail.m; sourceTree = "<group>"; };
 		33C1B77516368F3B00CA5A27 /* MailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailCell.h; sourceTree = "<group>"; };
 		33C1B77616368F3B00CA5A27 /* MailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailCell.m; sourceTree = "<group>"; };
-		33C1B77716368F3B00CA5A27 /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		33C1B77816368F3B00CA5A27 /* ContactCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactCell.m; sourceTree = "<group>"; };
 		33C1B77916368F3B00CA5A27 /* UserKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserKeychain.h; sourceTree = "<group>"; };
 		33C1B77A16368F3B00CA5A27 /* UserKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserKeychain.m; sourceTree = "<group>"; };
@@ -917,7 +916,6 @@
 				33C1B77416368F3B00CA5A27 /* Mail.m */,
 				33C1B77516368F3B00CA5A27 /* MailCell.h */,
 				33C1B77616368F3B00CA5A27 /* MailCell.m */,
-				33C1B77716368F3B00CA5A27 /* ContactCell.h */,
 				33C1B77816368F3B00CA5A27 /* ContactCell.m */,
 				33C1B77916368F3B00CA5A27 /* UserKeychain.h */,
 				33C1B77A16368F3B00CA5A27 /* UserKeychain.m */,

@@ -44,7 +44,6 @@
         NSMutableString *recipient = [NSMutableString string];
         NSMutableCharacterSet *charSet = [[NSCharacterSet whitespaceCharacterSet] mutableCopy];
         [charSet formUnionWithCharacterSet:[NSCharacterSet punctuationCharacterSet]];
-        
         if (replyAllFlag) {
             NSArray *das = [mail.reciverName componentsSeparatedByString:@","];
             if ([das count] > 10) {
