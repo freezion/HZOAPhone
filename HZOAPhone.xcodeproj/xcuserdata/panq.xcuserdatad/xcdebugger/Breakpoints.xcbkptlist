@@ -47,12 +47,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "HZOAPhone/NewCalendarViewController.m"
-         timestampString = "395636469.677501"
+         timestampString = "396494765.56639"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "263"
-         endingLineNumber = "263"
-         landmarkName = "-doneClicked"
+         startingLineNumber = "541"
+         endingLineNumber = "541"
+         landmarkName = "-setupRightBar"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

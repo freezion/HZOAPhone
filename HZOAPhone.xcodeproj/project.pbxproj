@@ -585,6 +585,7 @@
 		33D1F0AA162B9C4100CED3D7 /* LeftSideBG@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "LeftSideBG@2x.jpg"; sourceTree = "<group>"; };
 		33D1F0AD162B9FA100CED3D7 /* SpringBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpringBoardViewController.h; sourceTree = "<group>"; };
 		33D1F0AE162B9FA100CED3D7 /* SpringBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpringBoardViewController.m; sourceTree = "<group>"; };
+		33E67A0A17A2048C00F278ED /* ContactCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactCell.h; sourceTree = "<group>"; };
 		33E7256B16352B0B0038A6A1 /* shadowOverlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadowOverlay@2x.png"; sourceTree = "<group>"; };
 		33E7256C16352B0B0038A6A1 /* stretchableGlass@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stretchableGlass@2x.png"; sourceTree = "<group>"; };
 		33E7256D16352B0B0038A6A1 /* wheelBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wheelBackground@2x.png"; sourceTree = "<group>"; };
@@ -916,6 +917,7 @@
 				33C1B77416368F3B00CA5A27 /* Mail.m */,
 				33C1B77516368F3B00CA5A27 /* MailCell.h */,
 				33C1B77616368F3B00CA5A27 /* MailCell.m */,
+				33E67A0A17A2048C00F278ED /* ContactCell.h */,
 				33C1B77816368F3B00CA5A27 /* ContactCell.m */,
 				33C1B77916368F3B00CA5A27 /* UserKeychain.h */,
 				33C1B77A16368F3B00CA5A27 /* UserKeychain.m */,

@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "GCRetractableSectionController.h"
-#import "ContactCell.h"
 #import "Employee.h"
 #import "InvitEmployeeViewController.h"
 #import "NewEmailViewController.h"

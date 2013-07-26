@@ -867,8 +867,8 @@
     [request setPostValue:jsonString forKey:@"con"];
     [request buildPostBody];
     [request setDelegate:self];
-    [request startAsynchronous];
-    //NSLog(@"%@", [request responseString]);
+    [request startSynchronous];
+    NSLog(@"%@", [request responseString]);
     return [request responseString];
 }
 

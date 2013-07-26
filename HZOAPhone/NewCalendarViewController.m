@@ -114,7 +114,7 @@
         buttonFrame.size.width = buttonImage.size.width;
         buttonFrame.size.height = buttonImage.size.height;
         [button setFrame:buttonFrame];
-        [button addTarget:self action:@selector(doneClicked) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self action:@selector(updateClicked) forControlEvents:UIControlEventTouchUpInside];
         buttonBar = [[UIBarButtonItem alloc] initWithCustomView:button];
         self.navigationItem.rightBarButtonItem = buttonBar;
         
