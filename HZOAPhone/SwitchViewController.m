@@ -53,33 +53,33 @@
     [button addTarget:self action:@selector(doCancel) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem *buttonBar = [[UIBarButtonItem alloc] initWithCustomView:button];
     self.navigationItem.leftBarButtonItem = buttonBar;
-    if (status != 1) {
-        UIButton *buttonChange = [UIButton buttonWithType:UIButtonTypeCustom];
-        // Since the buttons can be any width we use a thin image with a stretchable center point
-        UIImage *buttonChangeImage = [[UIImage imageNamed:@"group_btn"] stretchableImageWithLeftCapWidth:5  topCapHeight:0];
-        UIImage *buttonChangePressedImage = [[UIImage imageNamed:@"group_btn"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-        [buttonChange setBackgroundImage:buttonChangeImage forState:UIControlStateNormal];
-        [buttonChange setBackgroundImage:buttonChangePressedImage forState:UIControlStateHighlighted];
-        CGRect buttonChangeFrame = [buttonChange frame];
-        buttonChangeFrame.size.width = buttonChangeImage.size.width;
-        buttonChangeFrame.size.height = buttonChangeImage.size.height;
-        [buttonChange setFrame:buttonChangeFrame];
-        [buttonChange addTarget:self action:@selector(doChange) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *buttonChangeBar = [[UIBarButtonItem alloc] initWithCustomView:buttonChange];
-        self.navigationItem.rightBarButtonItem = buttonChangeBar;
-    }
-    NSMutableArray *mostList = [Employee getAllMostContact];
+//    if (status != 1) {
+//        UIButton *buttonChange = [UIButton buttonWithType:UIButtonTypeCustom];
+//        // Since the buttons can be any width we use a thin image with a stretchable center point
+//        UIImage *buttonChangeImage = [[UIImage imageNamed:@"group_btn"] stretchableImageWithLeftCapWidth:5  topCapHeight:0];
+//        UIImage *buttonChangePressedImage = [[UIImage imageNamed:@"group_btn"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+//        [buttonChange setBackgroundImage:buttonChangeImage forState:UIControlStateNormal];
+//        [buttonChange setBackgroundImage:buttonChangePressedImage forState:UIControlStateHighlighted];
+//        CGRect buttonChangeFrame = [buttonChange frame];
+//        buttonChangeFrame.size.width = buttonChangeImage.size.width;
+//        buttonChangeFrame.size.height = buttonChangeImage.size.height;
+//        [buttonChange setFrame:buttonChangeFrame];
+//        [buttonChange addTarget:self action:@selector(doChange) forControlEvents:UIControlEventTouchUpInside];
+//        UIBarButtonItem *buttonChangeBar = [[UIBarButtonItem alloc] initWithCustomView:buttonChange];
+//        self.navigationItem.rightBarButtonItem = buttonChangeBar;
+//    }
+    //NSMutableArray *mostList = [Employee getAllMostContact];
     
 	UIStoryboard *storyborad = [UIStoryboard storyboardWithName:@"HZOAStoryboard" bundle:nil];
-    ChooseMostViewController *newMostContactViewController = [storyborad instantiateViewControllerWithIdentifier:@"ChooseMostViewController"];
-    newMostContactViewController.delegateEmail = self.delegateEmail;
-    newMostContactViewController.delegateForward = self.delegateForward;
-    newMostContactViewController.delegateInvitEmployee = self.delegateInvitEmployee;
-    newMostContactViewController.delegateMostContact = self.delegateMostContact;
-    newMostContactViewController.delegateNotice = self.delegateNotice;
-    newMostContactViewController.delegateReply = self.delegateReply;
-    newMostContactViewController.delegateSwitchView = self;
-    newMostContactViewController.buttonId = self.buttonId;
+//    ChooseMostViewController *newMostContactViewController = [storyborad instantiateViewControllerWithIdentifier:@"ChooseMostViewController"];
+//    newMostContactViewController.delegateEmail = self.delegateEmail;
+//    newMostContactViewController.delegateForward = self.delegateForward;
+//    newMostContactViewController.delegateInvitEmployee = self.delegateInvitEmployee;
+//    newMostContactViewController.delegateMostContact = self.delegateMostContact;
+//    newMostContactViewController.delegateNotice = self.delegateNotice;
+//    newMostContactViewController.delegateReply = self.delegateReply;
+//    newMostContactViewController.delegateSwitchView = self;
+//    newMostContactViewController.buttonId = self.buttonId;
     
     ChooseEmployeeViewController *newChooseEmployeeViewController = [storyborad instantiateViewControllerWithIdentifier:@"ChooseEmployeeViewController"];
     newChooseEmployeeViewController.delegateEmail = self.delegateEmail;
@@ -91,15 +91,16 @@
     newChooseEmployeeViewController.delegateSwitchView = self;
     newChooseEmployeeViewController.buttonId = self.buttonId;
     
-    self.mostContactViewController = newMostContactViewController;
-    [mostContactViewController.view setFrame:[self.view bounds]];
+//    self.mostContactViewController = newMostContactViewController;
+//    [mostContactViewController.view setFrame:[self.view bounds]];
     self.chooseEmployeeViewController = newChooseEmployeeViewController;
     [chooseEmployeeViewController.view setFrame:[self.view bounds]];
-    if ([mostList count] != 0 && status != 1) {
-        [self.view insertSubview:mostContactViewController.view atIndex:0];
-    } else {
-        [self.view insertSubview:chooseEmployeeViewController.view atIndex:0];
-    }    
+//    if ([mostList count] != 0 && status != 1) {
+//        [self.view insertSubview:mostContactViewController.view atIndex:0];
+//    } else {
+//        [self.view insertSubview:chooseEmployeeViewController.view atIndex:0];
+//    }
+    [self.view insertSubview:chooseEmployeeViewController.view atIndex:0];
 }
 
 - (void)didReceiveMemoryWarning
