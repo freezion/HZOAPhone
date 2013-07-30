@@ -31,8 +31,8 @@
     self.webViewController = [[SVWebViewController alloc] initWithURL:URL];
     if (self = [super initWithRootViewController:self.webViewController]) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *buttonImage = [[UIImage imageNamed:@"finish.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-        UIImage *buttonPressedImage = [[UIImage imageNamed:@"finish2.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonImage = [[UIImage imageNamed:@"finish"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonPressedImage = [[UIImage imageNamed:@"finish2"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
         [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
         [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
         CGRect buttonFrame = [button frame];

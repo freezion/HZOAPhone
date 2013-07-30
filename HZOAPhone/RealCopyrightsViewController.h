@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) IBOutlet UIButton *urlButton;
 @property (nonatomic, retain) IBOutlet UILabel *versionLabel;
+@property (nonatomic, retain) IBOutlet UILabel *bottomLabel;
 
 -(IBAction) showSite:(id) sender;
 -(IBAction) goAppStore:(id)sender;

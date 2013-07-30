@@ -149,8 +149,8 @@
     [lblEmailType setFont:[UIFont fontWithName:@"MicrosoftYaHei" size:18.0]];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage *buttonImage = [[UIImage imageNamed:@"cancel.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-    UIImage *buttonPressedImage = [[UIImage imageNamed:@"cancel2.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+    UIImage *buttonImage = [[UIImage imageNamed:@"cancel"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+    UIImage *buttonPressedImage = [[UIImage imageNamed:@"cancel2"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
     [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
     CGRect buttonFrame = [button frame];
@@ -162,8 +162,8 @@
     self.navigationItem.leftBarButtonItem = buttonBar;
     
     button = [UIButton buttonWithType:UIButtonTypeCustom];
-    buttonImage = [[UIImage imageNamed:@"send_paper.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-    buttonPressedImage = [[UIImage imageNamed:@"send2.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+    buttonImage = [[UIImage imageNamed:@"send_paper"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+    buttonPressedImage = [[UIImage imageNamed:@"send2"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
     [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
     [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
     buttonFrame = [button frame];

@@ -404,8 +404,8 @@
     
     if (_menuFlags.canShowLeft) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *buttonImage = [[UIImage imageNamed:@"News_back1.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-        UIImage *buttonPressedImage = [[UIImage imageNamed:@"News_back2.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonImage = [[UIImage imageNamed:@"News_back1"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonPressedImage = [[UIImage imageNamed:@"News_back2"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
         [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
         [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
         CGRect buttonFrame = [button frame];
@@ -423,8 +423,8 @@
     if (_menuFlags.canShowRight) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         // Since the buttons can be any width we use a thin image with a stretchable center point
-        UIImage *buttonImage = [[UIImage imageNamed:@"News_back3.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-        UIImage *buttonPressedImage = [[UIImage imageNamed:@"News_back4.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonImage = [[UIImage imageNamed:@"News_back3"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonPressedImage = [[UIImage imageNamed:@"News_back4"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
         [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
         [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
         CGRect buttonFrame = [button frame];

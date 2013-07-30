@@ -53,8 +53,8 @@
     if (tabbarIndex == 3) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         // Since the buttons can be any width we use a thin image with a stretchable center point
-        UIImage *buttonImage = [[UIImage imageNamed:@"action_default.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-        UIImage *buttonPressedImage = [[UIImage imageNamed:@"action_pressed.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonImage = [[UIImage imageNamed:@"action_default"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonPressedImage = [[UIImage imageNamed:@"action_pressed"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
         [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
         [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
         CGRect buttonFrame = [button frame];
@@ -68,8 +68,8 @@
     else if (tabbarIndex == 0) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         // Since the buttons can be any width we use a thin image with a stretchable center point
-        UIImage *buttonImage = [[UIImage imageNamed:@"action_default.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-        UIImage *buttonPressedImage = [[UIImage imageNamed:@"action_pressed.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonImage = [[UIImage imageNamed:@"action_default"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonPressedImage = [[UIImage imageNamed:@"action_pressed"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
         [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
         [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
         CGRect buttonFrame = [button frame];
@@ -83,8 +83,8 @@
     else {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         // Since the buttons can be any width we use a thin image with a stretchable center point
-        UIImage *buttonImage = [[UIImage imageNamed:@"action_default.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
-        UIImage *buttonPressedImage = [[UIImage imageNamed:@"action_pressed.png"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonImage = [[UIImage imageNamed:@"action_default"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
+        UIImage *buttonPressedImage = [[UIImage imageNamed:@"action_pressed"] stretchableImageWithLeftCapWidth:5 topCapHeight:0];
         [button setBackgroundImage:buttonImage forState:UIControlStateNormal];
         [button setBackgroundImage:buttonPressedImage forState:UIControlStateHighlighted];
         CGRect buttonFrame = [button frame];

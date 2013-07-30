@@ -23,6 +23,7 @@
 @synthesize noticeList;
 @synthesize refreshFlag;
 @synthesize bar;
+@synthesize editFlag;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -239,6 +240,7 @@
     } else {
         [self.navigationController pushViewController:noticeDetailViewController animated:YES];
         if ([notice.readed isEqualToString:@"0"]) {
+            cell.readImageView.image = [UIImage imageNamed:@""];
             [Notice readedNotice:notice.ID withEmployeeId:[usernamepasswordKVPairs objectForKey:KEY_USERID]];
             noticeList = [Notice getAllNotice:[usernamepasswordKVPairs objectForKey:KEY_USERID] withSync:YES];
             [self.tableViewCustom reloadData];

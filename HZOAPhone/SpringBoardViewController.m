@@ -40,7 +40,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    [self.imageView setImage:[UIImage imageNamed:@"springboard3.png"]];
+    [self.imageView setImage:[UIImage imageNamed:@"springboard2.png"]];
 }
 
 - (void)viewDidUnload

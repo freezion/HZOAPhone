@@ -16,6 +16,7 @@
 @implementation RealCopyrightsViewController
 @synthesize urlButton;
 @synthesize versionLabel;
+@synthesize bottomLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +42,10 @@
                                               cancelButtonTitle:@"前往下载"
                                               otherButtonTitles:nil, nil];
         [alert performSelector:@selector(show) withObject:nil afterDelay:0.0];
+    }
+    
+    if ([UIScreen mainScreen].bounds.size.height == 480.0) {
+        [self.bottomLabel setFrame:CGRectMake(0, 378, 320, 31)];
     }
 }
 
