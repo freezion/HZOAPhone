@@ -8,6 +8,7 @@
 
 #import "NewCalendarViewController.h"
 #import "CalenderChooseViewController.h"
+#import "Employee.h"
 
 @interface NewCalendarViewController ()
 
@@ -124,15 +125,21 @@
         startLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.StartTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy年M月d日 HH:mm"];
         endLabel.text = [NSUtil parserStringToCustomStringAdv:calendarObj.EndTime withParten:@"yyyy-MM-dd HH:mm:ss" withToParten:@"yyyy年M月d日 HH:mm"];
         
-        NSString *invationNames = calendarObj.CustomerName;
-        //NSLog(@"invationNames === %@", invationNames);
+        NSString *invationIds = calendarObj.Employee_Id;
+        NSString *invationNames = calendarObj.Employee_Name;
+        NSArray *idList = [invationIds componentsSeparatedByString:@","];
         NSArray *nameList = [invationNames componentsSeparatedByString:@","];
-        tokenList = [[NSMutableArray alloc] initWithCapacity:20];
-        //NSLog(@"count === %d", [nameList count]);
-        if ([invationNames isEqualToString:@""]) {
+        for (int i = 0; i < [idList count]; i ++) {
+            Employee *employee = [[Employee alloc] init];
+            employee._id = [idList objectAtIndex:i];
+            employee._name = [nameList objectAtIndex:i];
+            employee._forCC = @"2";
+            [Employee insertTmpContact:employee];
+        }
+        if ([invationIds isEqualToString:@""]) {
             invitionLabel.text = @"无";
         } else {
-            invitionLabel.text = [NSString stringWithFormat:@"%d", [nameList count]];
+            invitionLabel.text = [NSString stringWithFormat:@"%d", [idList count]];
         }
         if ([calendarObj.Reminder isEqualToString:@""] || calendarObj.Reminder == nil) {
             alertLabel.text = @"无";
@@ -363,10 +370,25 @@
     } else {
         calendarObj.Type = @"1";
     }
-    if (invationsLocal == nil) {
-        calendarObj.Employee_Id = @"";
-    } else {
+    
+    if (invationsLocal != nil) {
         calendarObj.Employee_Id = invationsLocal;
+    } else {
+        NSArray *empList = [Employee getTmpContactByCC:@"2"];
+        
+        if ([empList count] > 0) {
+            int i = 0;
+            NSString *value = @"";
+            for (Employee *emp in empList) {
+                value = [value stringByAppendingFormat:@"%@", emp._id];
+                if (i != [empList count] - 1) {
+                    value = [value stringByAppendingString:@","];
+                }
+                i ++;
+            }
+        } else {
+            calendarObj.Employee_Id = @"";
+        }
     }
     
     calendarObj.Readed = [usernamepasswordKVPairs objectForKey:KEY_USERID];
